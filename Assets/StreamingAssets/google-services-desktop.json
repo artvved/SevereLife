@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "129404926028",
+    "project_id": "severelife-35ca4",
+    "storage_bucket": "severelife-35ca4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129404926028:android:143e06617d6389610f9ce9",
+        "android_client_info": {
+          "package_name": "com.bekgame.severeLife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129404926028-79o2r03gr1qv1h6one478mp05dkqlnoe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgciT8Vij60YjZ5T96Nq8s221bty-cCHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129404926028-79o2r03gr1qv1h6one478mp05dkqlnoe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
