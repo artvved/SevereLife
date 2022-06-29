@@ -12,7 +12,7 @@ public class UIController : MonoBehaviour
     
     [Header("Blackout")]
     [SerializeField] private BlackoutScreen blackoutScreen;
-    [SerializeField] private Image image;
+    [SerializeField] private Image blackoutImage;
     [SerializeField] private float blackoutTime;
     void Start()
     {
@@ -32,18 +32,18 @@ public class UIController : MonoBehaviour
     {
         for (float i = 0; i < blackoutTime; i+=Time.deltaTime)
         {
-            Color color=image.color;
+            Color color=blackoutImage.color;
             color.a =  color.a+Time.deltaTime *255/100;
-            image.color = color;
+            blackoutImage.color = color;
             yield return null;
         }
         CloseScreen(menuScreen.gameObject);
         OpenScreen(gameScreen.gameObject);
         for (float i = 0; i < blackoutTime; i+=Time.deltaTime)
         {
-            Color color=image.color;
+            Color color=blackoutImage.color;
             color.a =  color.a-Time.deltaTime *255/100;
-            image.color = color;
+            blackoutImage.color = color;
             yield return null;
         }
     }

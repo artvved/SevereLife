@@ -208,7 +208,7 @@ MonoBehaviour:
   menuScreen: {fileID: 524750677}
   gameScreen: {fileID: 547615774}
   blackoutScreen: {fileID: 647238351}
-  image: {fileID: 647238352}
+  blackoutImage: {fileID: 647238352}
   blackoutTime: 1
 --- !u!4 &110516933
 Transform:
