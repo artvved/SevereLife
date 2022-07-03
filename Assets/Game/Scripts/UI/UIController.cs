@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Game.Scripts.UI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,10 @@ public class UIController : MonoBehaviour
     [SerializeField] private BlackoutScreen blackoutScreen;
     [SerializeField] private Image blackoutImage;
     [SerializeField] private float blackoutTime;
+    
+    [Header("Move buttons")]
+    [SerializeField] private PressedReleasedButton leftButton;
+    [SerializeField] private PressedReleasedButton rightButton;
     void Start()
     {
         blackoutScreen.BlackoutEvent += () =>
@@ -22,9 +27,23 @@ public class UIController : MonoBehaviour
         };
         menuScreen.StartGameEvent += () =>
         {
-            
             blackoutScreen.OnBlackout();
-           
+        };
+        leftButton.PressedEvent += () =>
+        {
+            gameController.MoveLeft();
+        };
+        leftButton.ReleasedEvent += () =>
+        {
+            gameController.StopMoving();
+        };
+        rightButton.PressedEvent += () =>
+        {
+            gameController.MoveRight();
+        };
+        rightButton.ReleasedEvent += () =>
+        {
+            gameController.StopMoving();
         };
     }
     
