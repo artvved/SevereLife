@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 3539692123
+    locked: 0
+  - name: Player
+    uniqueID: 3373759025
+    locked: 0
+  - name: UI
+    uniqueID: 3072667531
+    locked: 0
+  - name: Blackout
+    uniqueID: 3824711113
+    locked: 0
