@@ -26,12 +26,7 @@ namespace Game.Scripts.Logic
             rightX = rightBorder.position.x-cameraWidth;
         }
 
-        private void OnDrawGizmos()
-        {
-            Gizmos.color=Color.red;
-            Gizmos.DrawLine(new Vector3(leftBorder.position.x,5,0),new Vector3(leftX,5,0));
-            Gizmos.DrawLine(new Vector3(rightBorder.position.x,5,0),new Vector3(rightX,5,0));
-        }
+     
 
         private void Update()
         {

@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - BG
+  - Blackout
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: BG
     uniqueID: 3539692123
+    locked: 0
+  - name: Requirements
+    uniqueID: 1903211319
     locked: 0
   - name: Player
     uniqueID: 3373759025

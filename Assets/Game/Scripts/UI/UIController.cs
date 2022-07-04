@@ -19,15 +19,21 @@ public class UIController : MonoBehaviour
     [Header("Move buttons")]
     [SerializeField] private PressedReleasedButton leftButton;
     [SerializeField] private PressedReleasedButton rightButton;
+
+    private bool isCutscene;
     void Start()
     {
         blackoutScreen.BlackoutEvent += () =>
         {
             StartCoroutine(Blackout());
+            isCutscene = true;
         };
         menuScreen.StartGameEvent += () =>
         {
             blackoutScreen.OnBlackout();
+            
+            StartCoroutine(StartGame());
+            
         };
         leftButton.PressedEvent += () =>
         {
@@ -46,7 +52,16 @@ public class UIController : MonoBehaviour
             gameController.StopMoving();
         };
     }
-    
+
+    private IEnumerator StartGame()
+    {
+        gameController.ShowPlayerReq();
+        yield return new WaitForSeconds(3);
+        OpenScreen(gameScreen.gameObject);
+        //yield return new WaitUntil(() => !isCutscene);
+
+    }
+
     private IEnumerator Blackout()
     {
         for (float i = 0; i < blackoutTime; i+=Time.deltaTime)
@@ -57,7 +72,7 @@ public class UIController : MonoBehaviour
             yield return null;
         }
         CloseScreen(menuScreen.gameObject);
-        OpenScreen(gameScreen.gameObject);
+       
         for (float i = 0; i < blackoutTime; i+=Time.deltaTime)
         {
             Color color=blackoutImage.color;
@@ -65,6 +80,8 @@ public class UIController : MonoBehaviour
             blackoutImage.color = color;
             yield return null;
         }
+
+        
     }
 
    

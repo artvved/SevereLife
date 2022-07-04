@@ -9,21 +9,31 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayerView playerView;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private float playerSpeed;
+    [SerializeField] private RequirementView playerRequirementView;
+
+    [SerializeField] private Level[] levels;
+    private int curLevel = 0;
     
 
     private MoveController moveController;
     private PlayerModel playerModel;
-
+    
     private void InitFields()
     {
         playerModel = new PlayerModel(playerSpeed);
         moveController = new MoveController(playerView,playerModel);
     }
 
+    private void InitLevel()
+    {
+        levels[curLevel].gameObject.SetActive(true);
+    }
+
     void Start()
     {
         InitFields();
-        
+        InitLevel();
+
     }
 
     private void PlayerMove(string animationTrigger,Vector2 direction)
@@ -57,6 +67,11 @@ public class GameController : MonoBehaviour
     {
         playerModel.IsMoving = false;
         playerAnimator.SetTrigger("Idle");
+    }
+
+    public void ShowPlayerReq()
+    {
+        playerRequirementView.Animator.SetTrigger("Show");
     }
 
 
