@@ -55,6 +55,7 @@ public class UIController : MonoBehaviour
 
     private IEnumerator StartGame()
     {
+        yield return new WaitForSeconds(3);
         gameController.ShowPlayerReq();
         yield return new WaitForSeconds(3);
         OpenScreen(gameScreen.gameObject);
