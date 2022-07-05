@@ -10,14 +10,25 @@ public class GameController : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private float playerSpeed;
     [SerializeField] private RequirementView playerRequirementView;
-
+    private PlayerModel playerModel;
+    
+    [Header("Level")]
     [SerializeField] private Level[] levels;
     private int curLevel = 0;
     
-
+    [Header("Controller")]
+    [SerializeField] private InputController inputController;
     private MoveController moveController;
-    private PlayerModel playerModel;
     
+    [Header("Entrance")]
+    [SerializeField] private Entrance toInside;
+    [SerializeField] private Entrance toOutside;
+    
+
+    public Entrance ToInside => toInside;
+    public Entrance ToOutside => toOutside;
+
+
     private void InitFields()
     {
         playerModel = new PlayerModel(playerSpeed);
@@ -33,6 +44,27 @@ public class GameController : MonoBehaviour
     {
         InitFields();
         InitLevel();
+        
+        //filling events
+        inputController.HitEvent += hit2D =>
+        {
+            GameObject hitGO = hit2D.collider.gameObject;
+            RequirementHolder requirementHolder =hitGO.GetComponent<RequirementHolder>();
+            if (requirementHolder != null)
+            {
+                requirementHolder.RequirementView.Animator.SetTrigger("Show");
+            }
+            else
+            {
+                var pickable = hitGO.GetComponent<Pickable>();
+                if (pickable!=null)
+                {
+                    //pick obj
+                    Destroy(pickable.gameObject);
+                }
+            }
+        };
+      
 
     }
 
@@ -72,6 +104,33 @@ public class GameController : MonoBehaviour
     public void ShowPlayerReq()
     {
         playerRequirementView.Animator.SetTrigger("Show");
+    }
+
+    public void Enter()
+    {
+        GameObject[] toEnable;
+        GameObject[] toDisable;
+        if (toInside.gameObject.activeSelf)
+        {
+            toEnable = toInside.ToEnable;
+            toDisable = toInside.ToDisable;
+            toInside.gameObject.SetActive(false);
+        }
+        else
+        {
+            toEnable = toOutside.ToEnable;
+            toDisable = toOutside.ToDisable;
+            toOutside.gameObject.SetActive(false);
+        }
+
+        foreach (var o in toDisable)
+        {
+            o.SetActive(false);
+        }
+        foreach (var o in toEnable)
+        {
+            o.SetActive(true);
+        }
     }
 
 

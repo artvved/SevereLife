@@ -10,17 +10,21 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameController gameController;
     [SerializeField] private MenuScreen menuScreen;
     [SerializeField] private GameScreen gameScreen;
-    
-    [Header("Blackout")]
-    [SerializeField] private BlackoutScreen blackoutScreen;
+
+    [Header("Blackout")] [SerializeField] private BlackoutScreen blackoutScreen;
     [SerializeField] private Image blackoutImage;
     [SerializeField] private float blackoutTime;
-    
-    [Header("Move buttons")]
-    [SerializeField] private PressedReleasedButton leftButton;
+
+    [Header("Move buttons")] [SerializeField]
+    private PressedReleasedButton leftButton;
+
     [SerializeField] private PressedReleasedButton rightButton;
 
+    [Header("Entrance button")] [SerializeField]
+    private Button entranceButton;
+
     private bool isCutscene;
+
     void Start()
     {
         blackoutScreen.BlackoutEvent += () =>
@@ -31,69 +35,71 @@ public class UIController : MonoBehaviour
         menuScreen.StartGameEvent += () =>
         {
             blackoutScreen.OnBlackout();
-            
+
             StartCoroutine(StartGame());
-            
         };
-        leftButton.PressedEvent += () =>
+        leftButton.PressedEvent += () => { gameController.MoveLeft(); };
+        leftButton.ReleasedEvent += () => { gameController.StopMoving(); };
+        rightButton.PressedEvent += () => { gameController.MoveRight(); };
+        rightButton.ReleasedEvent += () => { gameController.StopMoving(); };
+
+        gameController.ToInside.TriggerEnterEvent += () =>
         {
-            gameController.MoveLeft();
+            entranceButton.gameObject.SetActive(true);
         };
-        leftButton.ReleasedEvent += () =>
+        gameController.ToInside.TriggerExitEvent += () =>
         {
-            gameController.StopMoving();
+            entranceButton.gameObject.SetActive(false);
         };
-        rightButton.PressedEvent += () =>
+        gameController.ToOutside.TriggerEnterEvent += () =>
         {
-            gameController.MoveRight();
+            entranceButton.gameObject.SetActive(true);
         };
-        rightButton.ReleasedEvent += () =>
+
+        gameController.ToOutside.TriggerExitEvent += () =>
         {
-            gameController.StopMoving();
+            entranceButton.gameObject.SetActive(false);
         };
     }
 
     private IEnumerator StartGame()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         gameController.ShowPlayerReq();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         OpenScreen(gameScreen.gameObject);
         //yield return new WaitUntil(() => !isCutscene);
-
     }
 
     private IEnumerator Blackout()
     {
-        for (float i = 0; i < blackoutTime; i+=Time.deltaTime)
+        for (float i = 0; i < blackoutTime; i += Time.deltaTime)
         {
-            Color color=blackoutImage.color;
-            color.a =  color.a+Time.deltaTime *255/100;
-            blackoutImage.color = color;
-            yield return null;
-        }
-        CloseScreen(menuScreen.gameObject);
-       
-        for (float i = 0; i < blackoutTime; i+=Time.deltaTime)
-        {
-            Color color=blackoutImage.color;
-            color.a =  color.a-Time.deltaTime *255/100;
+            Color color = blackoutImage.color;
+            color.a = color.a + Time.deltaTime * 255 / 100;
             blackoutImage.color = color;
             yield return null;
         }
 
-        
+        CloseScreen(menuScreen.gameObject);
+
+        for (float i = 0; i < blackoutTime; i += Time.deltaTime)
+        {
+            Color color = blackoutImage.color;
+            color.a = color.a - Time.deltaTime * 255 / 100;
+            blackoutImage.color = color;
+            yield return null;
+        }
     }
 
-   
 
     private void OpenScreen(GameObject newScreen)
     {
         newScreen.SetActive(true);
     }
+
     private void CloseScreen(GameObject oldScreen)
     {
         oldScreen.SetActive(false);
-        
     }
 }
