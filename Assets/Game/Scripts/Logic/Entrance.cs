@@ -7,10 +7,13 @@ public class Entrance : MonoBehaviour
 {
     [SerializeField] private GameObject[] toEnable;
     [SerializeField] private GameObject[] toDisable;
+    [SerializeField] private Transform spawnPoint;
 
     public GameObject[] ToEnable => toEnable;
 
     public GameObject[] ToDisable => toDisable;
+
+    public Transform SpawnPoint => spawnPoint;
 
     public event Action TriggerEnterEvent;
     public event Action TriggerExitEvent;

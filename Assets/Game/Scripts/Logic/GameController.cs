@@ -115,12 +115,14 @@ public class GameController : MonoBehaviour
             toEnable = toInside.ToEnable;
             toDisable = toInside.ToDisable;
             toInside.gameObject.SetActive(false);
+            playerView.transform.position = toOutside.SpawnPoint.transform.position;
         }
         else
         {
             toEnable = toOutside.ToEnable;
             toDisable = toOutside.ToDisable;
             toOutside.gameObject.SetActive(false);
+            playerView.transform.position = toInside.SpawnPoint.transform.position;
         }
 
         foreach (var o in toDisable)

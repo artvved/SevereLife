@@ -23,20 +23,30 @@ public class UIController : MonoBehaviour
     [Header("Entrance button")] [SerializeField]
     private Button entranceButton;
 
-    private bool isCutscene;
+    private bool isLighteningFinished;
+    private bool isDarkeningFinished;
 
     void Start()
     {
-        blackoutScreen.BlackoutEvent += () =>
+
+        blackoutScreen.DarkeningFinishedEvent += () =>
         {
-            StartCoroutine(Blackout());
-            isCutscene = true;
+            isDarkeningFinished = true;
+            isLighteningFinished = false;
         };
+        blackoutScreen.LighteningFinishedEvent += () =>
+        {
+            isLighteningFinished = true;
+            isDarkeningFinished = false;
+        };
+
         menuScreen.StartGameEvent += () =>
         {
-            blackoutScreen.OnBlackout();
-
+            blackoutScreen.Animator.SetTrigger("Darkening");
+            //isLighteningFinished = false;
             StartCoroutine(StartGame());
+            
+          
         };
         leftButton.PressedEvent += () => { gameController.MoveLeft(); };
         leftButton.ReleasedEvent += () => { gameController.StopMoving(); };
@@ -64,12 +74,14 @@ public class UIController : MonoBehaviour
 
     private IEnumerator StartGame()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitUntil(() => isDarkeningFinished);
+        CloseScreen(menuScreen.gameObject);
         gameController.ShowPlayerReq();
         yield return new WaitForSeconds(2);
         OpenScreen(gameScreen.gameObject);
-        //yield return new WaitUntil(() => !isCutscene);
     }
+
+   
 
     private IEnumerator Blackout()
     {
@@ -81,7 +93,7 @@ public class UIController : MonoBehaviour
             yield return null;
         }
 
-        CloseScreen(menuScreen.gameObject);
+       
 
         for (float i = 0; i < blackoutTime; i += Time.deltaTime)
         {
@@ -101,5 +113,17 @@ public class UIController : MonoBehaviour
     private void CloseScreen(GameObject oldScreen)
     {
         oldScreen.SetActive(false);
+    }
+
+    public void EnterExitHouse()
+    {
+        blackoutScreen.Animator.SetTrigger("Darkening");
+        StartCoroutine(WaitForDarkeningThenEnter());
+    }
+
+    private IEnumerator WaitForDarkeningThenEnter()
+    {
+        yield return new WaitUntil(() => isDarkeningFinished);
+        gameController.Enter();
     }
 }

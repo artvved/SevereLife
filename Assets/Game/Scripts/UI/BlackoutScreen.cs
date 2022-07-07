@@ -8,12 +8,25 @@ public class BlackoutScreen : MonoBehaviour
 {
  
     
-    public event Action BlackoutEvent;
+    public event Action DarkeningFinishedEvent;
+    public event Action LighteningFinishedEvent;
 
-    public void OnBlackout()
+    private Animator animator;
+
+    public Animator Animator => animator;
+
+
+    public void DarkeningFinished()
     {
-        BlackoutEvent?.Invoke();
+        DarkeningFinishedEvent?.Invoke();
     }
-    
-   
+    public void LighteningFinished()
+    {
+        LighteningFinishedEvent?.Invoke();
+    }
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 }
