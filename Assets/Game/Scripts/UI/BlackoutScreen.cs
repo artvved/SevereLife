@@ -29,4 +29,13 @@ public class BlackoutScreen : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+
+    public void StartDarkening()
+    {
+        animator.SetTrigger("Darkening");
+    }
+    public void StartLightening()
+    {
+        animator.SetTrigger("Lightening");
+    }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entrance : MonoBehaviour
+public class EntranceView : MonoBehaviour
 {
     [SerializeField] private GameObject[] toEnable;
     [SerializeField] private GameObject[] toDisable;
@@ -22,6 +22,7 @@ public class Entrance : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        print(1);
         TriggerEnterEvent?.Invoke();
     }
 

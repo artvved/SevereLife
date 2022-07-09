@@ -11,9 +11,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private MenuScreen menuScreen;
     [SerializeField] private GameScreen gameScreen;
 
-    [Header("Blackout")] [SerializeField] private BlackoutScreen blackoutScreen;
-    [SerializeField] private Image blackoutImage;
-    [SerializeField] private float blackoutTime;
+    [Header("Blackout")] 
+    [SerializeField] private BlackoutScreen blackoutScreen;
+    
 
     [Header("Move buttons")] [SerializeField]
     private PressedReleasedButton leftButton;
@@ -42,7 +42,7 @@ public class UIController : MonoBehaviour
 
         menuScreen.StartGameEvent += () =>
         {
-            blackoutScreen.Animator.SetTrigger("Darkening");
+            blackoutScreen.StartDarkening();
             //isLighteningFinished = false;
             StartCoroutine(StartGame());
             
@@ -81,29 +81,7 @@ public class UIController : MonoBehaviour
         OpenScreen(gameScreen.gameObject);
     }
 
-   
-
-    private IEnumerator Blackout()
-    {
-        for (float i = 0; i < blackoutTime; i += Time.deltaTime)
-        {
-            Color color = blackoutImage.color;
-            color.a = color.a + Time.deltaTime * 255 / 100;
-            blackoutImage.color = color;
-            yield return null;
-        }
-
-       
-
-        for (float i = 0; i < blackoutTime; i += Time.deltaTime)
-        {
-            Color color = blackoutImage.color;
-            color.a = color.a - Time.deltaTime * 255 / 100;
-            blackoutImage.color = color;
-            yield return null;
-        }
-    }
-
+    
 
     private void OpenScreen(GameObject newScreen)
     {
@@ -117,7 +95,7 @@ public class UIController : MonoBehaviour
 
     public void EnterExitHouse()
     {
-        blackoutScreen.Animator.SetTrigger("Darkening");
+        blackoutScreen.StartDarkening();
         StartCoroutine(WaitForDarkeningThenEnter());
     }
 

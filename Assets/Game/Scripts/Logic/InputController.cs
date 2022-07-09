@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    public event Action<RaycastHit2D> HitEvent;
 
 
     private Camera camera;
@@ -16,10 +15,7 @@ public class InputController : MonoBehaviour
         camera = Camera.main;
     }
 
-    public void OnHit(RaycastHit2D hit)
-    {
-        HitEvent?.Invoke(hit);
-    }
+  
 
 
     void Update()
@@ -29,7 +25,18 @@ public class InputController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider!=null)
             {
-                OnHit(hit);
+                List<ITapable> tapables = new List<ITapable>();
+                tapables.AddRange(hit.collider.gameObject.GetComponentsInChildren<ITapable>());
+                foreach (var tapable in tapables)
+                {
+                    
+                    if (tapable!=null)
+                    {
+                       
+                        tapable.OnTap();
+                    }
+                }
+                
             }
             
         }
