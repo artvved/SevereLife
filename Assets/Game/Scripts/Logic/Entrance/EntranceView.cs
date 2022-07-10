@@ -22,7 +22,7 @@ public class EntranceView : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(1);
+        
         TriggerEnterEvent?.Invoke();
     }
 

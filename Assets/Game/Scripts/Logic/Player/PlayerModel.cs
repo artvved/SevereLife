@@ -1,36 +1,29 @@
-﻿using UnityEngine;
+﻿using System;
+using Game.Scripts.UI;
+using UnityEngine;
 
 namespace Game.Scripts.Logic
 {
     public class PlayerModel
     {
-        private float speed;
-        private bool isMoving;
-        private Vector2 movingDirection;
+        
 
-        public Vector2 MovingDirection
-        {
-            get => movingDirection;
-            set => movingDirection = value;
-        }
+        public Vector2 MovingDirection { get; set; }
 
-        public float Speed
-        {
-            get => speed;
-            set => speed = value;
-        }
+        public float Speed { get; set; }
 
-        public bool IsMoving
-        {
-            get => isMoving;
-            set => isMoving = value;
-        }
+        public bool IsMoving { get; set; }
+
+       
 
         public PlayerModel(float speed)
         {
-            this.speed = speed;
-            this.isMoving = false;
-            movingDirection = Vector2.left;
+            this.Speed = speed;
+            this.IsMoving = false;
+            MovingDirection = Vector2.left;
+            
         }
+
+       
     }
 }

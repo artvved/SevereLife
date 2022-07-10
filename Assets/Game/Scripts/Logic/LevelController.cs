@@ -14,20 +14,25 @@ namespace Game.Scripts.Logic
         public RequirementPresenter[] RequirementPresenters;
 
 
-        private void Start()
+        public void InitItems(InventoryController inventoryController)
         {
             ItemPresenters = new ItemPresenter[itemViews.Length];
-            RequirementPresenters = new RequirementPresenter[requirementViews.Length];
+          
 
             for (int i = 0; i < itemViews.Length; i++)
             {
                 var view = itemViews[i];
                 ItemModel m = new ItemModel(view.ItemName);
-                ItemPresenter p = new ItemPresenter(view, m);
+                ItemPresenter p = new ItemPresenter(view, m,inventoryController);
                 p.Enable();
                 ItemPresenters[i] = p;
                 
             }
+        }
+
+        public void InitReqs()
+        {
+            RequirementPresenters = new RequirementPresenter[requirementViews.Length];
 
 
             for (int i = 0; i < requirementViews.Length; i++)
@@ -39,6 +44,8 @@ namespace Game.Scripts.Logic
                 RequirementPresenters[i] = rp;
             }
         }
+
+        
 
   
     }

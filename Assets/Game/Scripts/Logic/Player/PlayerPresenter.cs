@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using Game.Scripts.UI;
+using UnityEngine;
 
 namespace Game.Scripts.Logic
 {
     public class PlayerPresenter : IPresenter
     {
         private PlayerView playerView;
+        
         private PlayerModel playerModel;
 
         public PlayerPresenter(PlayerView view, PlayerModel model)
@@ -12,16 +14,20 @@ namespace Game.Scripts.Logic
             playerView = view;
             playerModel = model;
         }
+        
 
         public void Enable()
         {
             playerView.TapEvent += OnTap;
+            
         }
         
         public void Disable()
         {
             playerView.TapEvent -= OnTap;
         }
+        
+
 
         private void OnTap()
         {

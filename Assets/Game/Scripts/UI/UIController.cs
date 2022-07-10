@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Game.Scripts.Logic;
 using Game.Scripts.UI;
 using UnityEditor;
 using UnityEngine;
@@ -23,11 +24,15 @@ public class UIController : MonoBehaviour
     [Header("Entrance button")] [SerializeField]
     private Button entranceButton;
 
+  
+
     private bool isLighteningFinished;
     private bool isDarkeningFinished;
 
     void Start()
     {
+        
+        
 
         blackoutScreen.DarkeningFinishedEvent += () =>
         {
@@ -70,6 +75,7 @@ public class UIController : MonoBehaviour
         {
             entranceButton.gameObject.SetActive(false);
         };
+        
     }
 
     private IEnumerator StartGame()

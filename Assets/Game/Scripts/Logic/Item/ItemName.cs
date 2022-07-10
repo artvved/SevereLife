@@ -2,6 +2,6 @@
 {
     public enum ItemName
     {
-        BAG_OF_MONEY,SCYTHE_PART,SCYTHE,WHEAT
+        NOTHING,BAG_OF_MONEY,STICK,BLADE,SCYTHE,WHEAT
     }
 }

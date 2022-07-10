@@ -1,21 +1,28 @@
-﻿namespace Game.Scripts.Logic
+﻿using Game.Scripts.UI;
+
+namespace Game.Scripts.Logic
 {
     public class ItemPresenter : IPresenter
     {
         private ItemView itemView;
         private ItemModel itemModel;
+        private InventoryController inventoryController;
+     
 
-        public ItemPresenter( ItemView itemView,ItemModel itemModel)
+        public ItemPresenter( ItemView itemView,ItemModel itemModel,InventoryController inventoryController)
         {
             this.itemView = itemView;
             this.itemModel = itemModel;
+            this.inventoryController = inventoryController;
         }
 
         private void OnTap()
         {
+            inventoryController.AddItem(itemModel.ItemName);
+            Disable();
             itemView.Destroy();
         }
-
+        
 
         public void Enable()
         {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Logic;
+using Game.Scripts.UI;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -17,25 +18,27 @@ public class GameController : MonoBehaviour
     [Header("Level")]
     [SerializeField] private LevelController[] levels;
     private int curLevel = 0;
-    
-  
-    
+    [SerializeField]
+    private InventoryController inventoryController;
+
+
     [Header("Entrance")]
     [SerializeField] private EntranceView toInside;
 
     private EntrancePresenter inEntrancePresenter;
     [SerializeField] private EntranceView toOutside;
     private EntrancePresenter outEntrancePresenter;
-    
+
 
     public EntranceView ToInside => toInside;
     public EntranceView ToOutside => toOutside;
-
+    
 
     private void InitFields()
     {
         playerModel = new PlayerModel(playerSpeed);
         playerPresenter = new PlayerPresenter(playerView, playerModel);
+        
         playerPresenter.Enable();
         
         playerRequirementModel = new RequirementModel(playerRequirementView.ItemName);
@@ -48,11 +51,16 @@ public class GameController : MonoBehaviour
         outEntrancePresenter = new EntrancePresenter(toOutside);
         outEntrancePresenter.Enable();
 
+       
+
     }
 
     private void InitLevel()
     {
-        levels[curLevel].gameObject.SetActive(true);
+        var l=levels[curLevel];
+        l.InitItems(inventoryController);
+        l.InitReqs();
+        l.gameObject.SetActive(true);
     }
 
     void Start()
