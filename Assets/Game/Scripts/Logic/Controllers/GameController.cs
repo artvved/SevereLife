@@ -1,13 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Logic;
+using Game.Scripts.Logic.Mode;
 using Game.Scripts.UI;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public PlayerView PlayerView => playerView;
+
     [Header("Player")]
     [SerializeField] private PlayerView playerView;
+    
     [SerializeField] private float playerSpeed;
     private PlayerPresenter playerPresenter;
     private PlayerModel playerModel;
@@ -15,23 +20,31 @@ public class GameController : MonoBehaviour
     private RequirementModel playerRequirementModel;
     private RequirementPresenter playerRequirementPresenter;
 
+    
     [Header("Level")]
     [SerializeField] private LevelController[] levels;
     private int curLevel = 0;
     [SerializeField]
     private InventoryController inventoryController;
+    [SerializeField]
+    private InputController inputController;
 
-
+    
     [Header("Entrance")]
     [SerializeField] private EntranceView toInside;
-
     private EntrancePresenter inEntrancePresenter;
     [SerializeField] private EntranceView toOutside;
     private EntrancePresenter outEntrancePresenter;
-
-
-    public EntranceView ToInside => toInside;
+    public EntranceView ToInside => toInside; 
     public EntranceView ToOutside => toOutside;
+    
+    //GameMode
+    [SerializeField]
+    private CirclesTapMode circlesTapMode;
+    [SerializeField]
+    private CircleController circleController;
+
+   
     
 
     private void InitFields()
@@ -50,16 +63,22 @@ public class GameController : MonoBehaviour
         
         outEntrancePresenter = new EntrancePresenter(toOutside);
         outEntrancePresenter.Enable();
+        
+        
 
-       
-
+        circlesTapMode.ModeEvent += (requirementView) =>
+        {
+            playerView.OnShowHideControls();
+            playerView.OnGoTo(requirementView.StartPosition.transform);
+            circleController.StartMode(3,playerView,requirementView);
+        };
     }
 
     private void InitLevel()
     {
         var l=levels[curLevel];
         l.InitItems(inventoryController);
-        l.InitReqs();
+        l.InitReqs(inventoryController);
         l.gameObject.SetActive(true);
     }
 
@@ -67,6 +86,15 @@ public class GameController : MonoBehaviour
     {
         InitFields();
         InitLevel();
+    }
+
+    public void BlockInput()
+    {
+        inputController.Block();
+    }
+    public void UnBlockInput()
+    {
+        inputController.Unblock();
     }
 
     public void Enter()

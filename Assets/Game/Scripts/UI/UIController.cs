@@ -48,7 +48,6 @@ public class UIController : MonoBehaviour
         menuScreen.StartGameEvent += () =>
         {
             blackoutScreen.StartDarkening();
-            //isLighteningFinished = false;
             StartCoroutine(StartGame());
             
           
@@ -75,16 +74,23 @@ public class UIController : MonoBehaviour
         {
             entranceButton.gameObject.SetActive(false);
         };
-        
+        gameController.PlayerView.ShowHideControlsEvent += () =>
+        {
+            bool activeSelf=gameScreen.gameObject.activeSelf;
+            gameScreen.gameObject.SetActive(!activeSelf);
+        };
+
     }
 
     private IEnumerator StartGame()
     {
+        gameController.BlockInput();
         yield return new WaitUntil(() => isDarkeningFinished);
         CloseScreen(menuScreen.gameObject);
         gameController.ShowPlayerReq();
         yield return new WaitForSeconds(2);
         OpenScreen(gameScreen.gameObject);
+        gameController.UnBlockInput();
     }
 
     

@@ -22,7 +22,7 @@ namespace Game.Scripts.Logic
             for (int i = 0; i < itemViews.Length; i++)
             {
                 var view = itemViews[i];
-                ItemModel m = new ItemModel(view.ItemName);
+                ItemModel m = new ItemModel(view.ItemName,view.MergeName,view.Level);
                 ItemPresenter p = new ItemPresenter(view, m,inventoryController);
                 p.Enable();
                 ItemPresenters[i] = p;
@@ -30,7 +30,7 @@ namespace Game.Scripts.Logic
             }
         }
 
-        public void InitReqs()
+        public void InitReqs(InventoryController inventoryController)
         {
             RequirementPresenters = new RequirementPresenter[requirementViews.Length];
 
@@ -39,7 +39,7 @@ namespace Game.Scripts.Logic
             {
                 var view = requirementViews[i];
                 RequirementModel m = new RequirementModel(view.ItemName);
-                RequirementPresenter rp = new RequirementPresenter(view, m);
+                RequirementPresenter rp = new RequirementPresenter(view, m,inventoryController,view.GameModeModel);
                 rp.Enable();
                 RequirementPresenters[i] = rp;
             }

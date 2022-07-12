@@ -12,6 +12,9 @@ namespace Game.Scripts.UI
         [SerializeField] private Sprite stick;
         [SerializeField] private Sprite blade;
         [SerializeField] private Sprite wheat;
+        [SerializeField] private Sprite gear;
+        [SerializeField] private Sprite bagOfWheat;
+
 
         private Dictionary<ItemName, Sprite> dictionary;
         private void Start()
@@ -21,6 +24,8 @@ namespace Game.Scripts.UI
             dictionary.Add(ItemName.STICK,stick);
             dictionary.Add(ItemName.BLADE,blade);
             dictionary.Add(ItemName.WHEAT,wheat);
+            dictionary.Add(ItemName.GEAR,gear);
+            dictionary.Add(ItemName.BAG_OF_WHEAT,bagOfWheat);
         }
 
         public ItemName GetItemBySpite(Sprite sprite)

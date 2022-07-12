@@ -8,7 +8,12 @@ public class ItemView : MonoBehaviour,ITapable
 {
     
     [SerializeField] private ItemName itemName;
+    [SerializeField] private MergeName mergeName;
+    [SerializeField] private int level;
     public ItemName ItemName => itemName;
+    public MergeName MergeName => mergeName;
+
+    public int Level => level;
 
     public event Action TapEvent;
     public void OnTap()

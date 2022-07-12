@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 265406429789530857}
   - component: {fileID: 8446799212509733609}
   m_Layer: 0
-  m_Name: Scythe part 1
+  m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89d46984b7603e4d952afa7593fe62b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 0
+  mergeName: 0
+  level: 0
 --- !u!70 &8446799212509733609
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

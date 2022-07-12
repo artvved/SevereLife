@@ -18,7 +18,7 @@ namespace Game.Scripts.Logic
 
         private void OnTap()
         {
-            inventoryController.AddItem(itemModel.ItemName);
+            inventoryController.AddItem(itemModel);
             Disable();
             itemView.Destroy();
         }
