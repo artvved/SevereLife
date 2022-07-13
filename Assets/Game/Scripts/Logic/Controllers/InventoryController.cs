@@ -71,11 +71,11 @@ namespace Game.Scripts.Logic
             isOpen = !isOpen;
         }
 
-        public bool CheckForItem(RequirementModel requirementModel)
+        public bool CheckForItem(ItemName itemName)
         {
             foreach (var item in items)
             {
-                if (item!=null && item.ItemName.Equals(requirementModel.ItemName))
+                if (item!=null && item.ItemName.Equals(itemName))
                 {
                     return true;
                 }

@@ -14,9 +14,11 @@ namespace Game.Scripts.UI
 
         public void ChangePicture(Sprite sprite)
         {
+           
+                spriteRenderer.sprite = sprite;
+                spriteRenderer.enabled = true;
             
-            spriteRenderer.sprite = sprite;
-            spriteRenderer.enabled = true;
+           
             
         }
     }

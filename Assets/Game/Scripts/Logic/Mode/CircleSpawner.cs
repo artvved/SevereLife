@@ -3,11 +3,18 @@ using UnityEngine;
 
 namespace Game.Scripts.Logic.Mode
 {
-    public class CircleController : MonoBehaviour
+    public class CircleSpawner : MonoBehaviour
     {
         [SerializeField] private CircleView prefab;
         private bool canSpawn = true;
+        private PlayerView playerView;
+        
 
+        public void InitFields( PlayerView playerView)
+        {
+            this.playerView = playerView;
+           
+        }
 
         public void BlockSpawn()
         {
@@ -19,14 +26,15 @@ namespace Game.Scripts.Logic.Mode
             canSpawn = true;
         }
 
-        public void StartMode(int count, PlayerView playerView,RequirementView requirementView)
+        public void StartSpawn(  CircleTapModeView circleTapModeView)
         {
             
-            StartCoroutine(Spawn(count, playerView,requirementView));
+            StartCoroutine(Spawn(  circleTapModeView));
         }
 
-        private IEnumerator Spawn(int count, PlayerView playerView,RequirementView requirementView)
+        private IEnumerator Spawn( CircleTapModeView circleTapModeView)
         {
+            var count = circleTapModeView.CirclesCount;
            
             for (int i = 0; i < count; i++)
             {
@@ -38,14 +46,11 @@ namespace Game.Scripts.Logic.Mode
 
                 var pos=GetRandomNearPosition(playerView.transform.position);
 
-                bool isFinal=false;
-                if (i == count - 1)
-                {
-                    isFinal = true;
-                }
+                bool isFinal= i == count - 1;
+                
                 CircleView circleView = Instantiate(prefab, pos, Quaternion.identity);
                 CircleModel circleModel = new CircleModel(isFinal);
-                CirclePresenter circlePresenter = new CirclePresenter(circleView,circleModel, this,playerView,requirementView);
+                CirclePresenter circlePresenter = new CirclePresenter(circleView,circleModel, this,playerView,circleTapModeView);
                 
                 circlePresenter.Enable();
 

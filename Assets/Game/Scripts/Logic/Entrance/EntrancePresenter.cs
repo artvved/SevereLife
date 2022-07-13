@@ -30,12 +30,20 @@ namespace Game.Scripts.Logic
 
             foreach (var o in view.ToDisable)
             {
-                o.SetActive(false);
+                if (o!=null)
+                {
+                    o.SetActive(false);
+                }
+                
             }
 
             foreach (var o in view.ToEnable)
             {
-                o.SetActive(true);
+                if (o!=null)
+                {
+                    o.SetActive(true);
+                }
+               
             }
         }
     }

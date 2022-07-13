@@ -1,4 +1,6 @@
 ﻿using System;
+using Game.Scripts.Logic.Dialog;
+using Game.Scripts.Logic.Mode;
 using UnityEngine;
 
 namespace Game.Scripts.Logic
@@ -12,6 +14,13 @@ namespace Game.Scripts.Logic
         [Header("Requirements")]
         [SerializeField]private RequirementView[] requirementViews;
         public RequirementPresenter[] RequirementPresenters;
+        
+        [Header("Dialogs")]
+        [SerializeField]private DialogView[] dialogViews;
+        
+        [Header("ModeViews")]
+        [SerializeField]private CircleTapModeView[] modeViews;
+        
 
 
         public void InitItems(InventoryController inventoryController)
@@ -39,9 +48,33 @@ namespace Game.Scripts.Logic
             {
                 var view = requirementViews[i];
                 RequirementModel m = new RequirementModel(view.ItemName);
-                RequirementPresenter rp = new RequirementPresenter(view, m,inventoryController,view.GameModeModel);
+                RequirementPresenter rp = new RequirementPresenter(view, m,inventoryController);
                 rp.Enable();
                 RequirementPresenters[i] = rp;
+            }
+        }
+        
+        public void InitDialogs(InventoryController inventoryController)
+        {
+            for (int i = 0; i < dialogViews.Length; i++)
+            {
+                var view = dialogViews[i];
+                
+                DialogPresenter p = new DialogPresenter(view,inventoryController);
+                p.Enable();
+               
+            }
+        }
+        
+        public void InitCircleModes(InventoryController inventoryController,PlayerView playerView,CircleSpawner circleSpawner)
+        {
+            for (int i = 0; i < modeViews.Length; i++)
+            {
+                var view = modeViews[i];
+                
+                CircleTapModePresenter p = new CircleTapModePresenter(view,playerView,inventoryController,circleSpawner);
+                p.Enable();
+               
             }
         }
 

@@ -39,10 +39,9 @@ public class GameController : MonoBehaviour
     public EntranceView ToOutside => toOutside;
     
     //GameMode
+    
     [SerializeField]
-    private CirclesTapMode circlesTapMode;
-    [SerializeField]
-    private CircleController circleController;
+    private CircleSpawner circleSpawner;
 
    
     
@@ -64,14 +63,10 @@ public class GameController : MonoBehaviour
         outEntrancePresenter = new EntrancePresenter(toOutside);
         outEntrancePresenter.Enable();
         
+        circleSpawner.InitFields(playerView);
         
 
-        circlesTapMode.ModeEvent += (requirementView) =>
-        {
-            playerView.OnShowHideControls();
-            playerView.OnGoTo(requirementView.StartPosition.transform);
-            circleController.StartMode(3,playerView,requirementView);
-        };
+      
     }
 
     private void InitLevel()
@@ -79,6 +74,8 @@ public class GameController : MonoBehaviour
         var l=levels[curLevel];
         l.InitItems(inventoryController);
         l.InitReqs(inventoryController);
+        l.InitDialogs(inventoryController);
+        l.InitCircleModes(inventoryController,playerView,circleSpawner);
         l.gameObject.SetActive(true);
     }
 

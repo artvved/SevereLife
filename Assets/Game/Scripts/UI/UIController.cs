@@ -76,8 +76,7 @@ public class UIController : MonoBehaviour
         };
         gameController.PlayerView.ShowHideControlsEvent += () =>
         {
-            bool activeSelf=gameScreen.gameObject.activeSelf;
-            gameScreen.gameObject.SetActive(!activeSelf);
+          gameScreen.ShowHideButtons();
         };
 
     }
