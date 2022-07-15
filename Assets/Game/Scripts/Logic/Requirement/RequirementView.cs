@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 
 namespace Game.Scripts.Logic
@@ -35,8 +34,6 @@ namespace Game.Scripts.Logic
             Destroy(this);
            // StartCoroutine(WaitAndDestroy(1f));
         }
-
-       
 
        
     }

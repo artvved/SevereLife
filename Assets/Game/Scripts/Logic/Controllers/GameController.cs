@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
     private void InitFields()
     {
         playerModel = new PlayerModel(playerSpeed);
-        playerPresenter = new PlayerPresenter(playerView, playerModel);
+        playerPresenter = new PlayerPresenter(playerView, playerModel,inputController);
         
         playerPresenter.Enable();
         
@@ -74,8 +74,9 @@ public class GameController : MonoBehaviour
         var l=levels[curLevel];
         l.InitItems(inventoryController);
         l.InitReqs(inventoryController);
-        l.InitDialogs(inventoryController);
-        l.InitCircleModes(inventoryController,playerView,circleSpawner);
+        l.InitDialogTriggers(inventoryController,playerView);
+        l.InitCircleModes(inventoryController,circleSpawner);
+        l.InitNearInteractableViews(playerView,inventoryController);
         l.gameObject.SetActive(true);
     }
 

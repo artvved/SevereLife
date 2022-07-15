@@ -8,22 +8,22 @@ namespace Game.Scripts.Logic.Mode
         private CircleModel circleModel;
         private CircleSpawner circleSpawner;
         private PlayerView playerView;
-        private CircleTapModeView circleTapModeView;
+        private CircleTapModeTriggerView circleTapModeTriggerView;
 
-        public CirclePresenter(CircleView circleView, CircleModel circleModel, CircleSpawner circleSpawner, PlayerView playerView, CircleTapModeView circleTapModeView)
+        public CirclePresenter(CircleView circleView, CircleModel circleModel, CircleSpawner circleSpawner, PlayerView playerView, CircleTapModeTriggerView circleTapModeTriggerView)
         {
             this.circleView = circleView;
             this.circleModel = circleModel;
             this.circleSpawner = circleSpawner;
             this.playerView = playerView;
-            this.circleTapModeView = circleTapModeView;
+            this.circleTapModeTriggerView = circleTapModeTriggerView;
         }
 
         private void OnTap()
         {
             if (circleModel.IsFinal)
             {
-                circleTapModeView.Destroy();
+                circleTapModeTriggerView.Destroy();
                 playerView.OnShowHideControls();
             }
             Disable();

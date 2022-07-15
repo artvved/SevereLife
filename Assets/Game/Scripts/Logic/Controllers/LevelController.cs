@@ -1,6 +1,7 @@
 ﻿using System;
 using Game.Scripts.Logic.Dialog;
 using Game.Scripts.Logic.Mode;
+using Game.Scripts.Logic.NearInteractable;
 using UnityEngine;
 
 namespace Game.Scripts.Logic
@@ -16,10 +17,13 @@ namespace Game.Scripts.Logic
         public RequirementPresenter[] RequirementPresenters;
         
         [Header("Dialogs")]
-        [SerializeField]private DialogView[] dialogViews;
+        [SerializeField]private DialogTriggerView[] dialogViews;
         
         [Header("ModeViews")]
-        [SerializeField]private CircleTapModeView[] modeViews;
+        [SerializeField]private CircleTapModeTriggerView[] modeViews;
+        
+        [Header("NearInteractableViews")]
+        [SerializeField]private NearInteractableView[] nearInteractableViews;
         
 
 
@@ -54,25 +58,37 @@ namespace Game.Scripts.Logic
             }
         }
         
-        public void InitDialogs(InventoryController inventoryController)
+        public void InitDialogTriggers(InventoryController inventoryController,PlayerView playerView)
         {
             for (int i = 0; i < dialogViews.Length; i++)
             {
                 var view = dialogViews[i];
                 
-                DialogPresenter p = new DialogPresenter(view,inventoryController);
+                DialogTriggerPresenter p = new DialogTriggerPresenter(view,inventoryController,playerView);
                 p.Enable();
                
             }
         }
         
-        public void InitCircleModes(InventoryController inventoryController,PlayerView playerView,CircleSpawner circleSpawner)
+        public void InitCircleModes(InventoryController inventoryController,CircleSpawner circleSpawner)
         {
             for (int i = 0; i < modeViews.Length; i++)
             {
                 var view = modeViews[i];
                 
-                CircleTapModePresenter p = new CircleTapModePresenter(view,playerView,inventoryController,circleSpawner);
+                CircleTapModeTriggerPresenter p = new CircleTapModeTriggerPresenter(view,inventoryController,circleSpawner);
+                p.Enable();
+               
+            }
+        }
+        
+        public void InitNearInteractableViews(PlayerView playerView,InventoryController inventoryController)
+        {
+            for (int i = 0; i < nearInteractableViews.Length; i++)
+            {
+                var view = nearInteractableViews[i];
+               
+                NearInteractablePresenter p = new NearInteractablePresenter(view,playerView,inventoryController);
                 p.Enable();
                
             }

@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game.Scripts.Logic;
 using UnityEngine;
 
 public class GameScreen : MonoBehaviour
 {
-    public event Action EnableEvent;
     [SerializeField] private GameObject buttons;
+    [SerializeField] private InventoryController inventoryController;
 
-    public void OnEnable()
-    {
-        EnableEvent?.Invoke();
-    }
 
     public void ShowHideButtons()
     {
-        bool activeSelf=buttons.activeSelf;
+        bool activeSelf = buttons.activeSelf;
         buttons.SetActive(!activeSelf);
+    }
+
+    public void ShowHideInventory()
+    {
+        bool activeSelf = inventoryController.gameObject.activeSelf;
+        inventoryController.gameObject.SetActive(!activeSelf);
     }
 }

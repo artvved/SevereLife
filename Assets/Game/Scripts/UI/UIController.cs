@@ -77,6 +77,7 @@ public class UIController : MonoBehaviour
         gameController.PlayerView.ShowHideControlsEvent += () =>
         {
           gameScreen.ShowHideButtons();
+          gameScreen.ShowHideInventory();
         };
 
     }

@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections;
+using Game.Scripts.Logic.Mode;
 using UnityEngine;
 
 namespace Game.Scripts.Logic
 {
-    public class CircleTapModeView : MonoBehaviour,ITapable
+    public class CircleTapModeTriggerView : MonoBehaviour,IModeTriggerView
     {
         [SerializeField] private int circlesCount;
         
-        [SerializeField] private Transform startPosition;
-        [SerializeField] private CircleTapModeView nextInSequence;
+       
+        [SerializeField] private CircleTapModeTriggerView nextInSequence;
 
         [SerializeField] private ItemView rewardItem;
         
@@ -17,8 +18,8 @@ namespace Game.Scripts.Logic
 
         public int CirclesCount => circlesCount;
 
-        public Transform StartPosition => startPosition;
-        public CircleTapModeView NextInSequence => nextInSequence;
+      
+        public CircleTapModeTriggerView NextInSequence => nextInSequence;
         
         
         private void Start()
@@ -60,7 +61,7 @@ namespace Game.Scripts.Logic
             GetComponent<Collider2D>().enabled = true;
         }
 
-        public event Action TapEvent;
+        public event Action ModeEvent;
         public event Action DeathEvent;
 
         private void OnDeath()
@@ -68,9 +69,9 @@ namespace Game.Scripts.Logic
             DeathEvent?.Invoke();
         }
 
-        public void OnTap()
+        public  void OnMode()
         {
-            TapEvent?.Invoke();
+            ModeEvent?.Invoke();
         }
     }
 }

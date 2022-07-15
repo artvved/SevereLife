@@ -9,13 +9,15 @@ namespace Game.Scripts.Logic
         private PlayerView playerView;
         
         private PlayerModel playerModel;
+        private InputController inputController;
 
-        public PlayerPresenter(PlayerView view, PlayerModel model)
+        public PlayerPresenter(PlayerView playerView, PlayerModel playerModel, InputController inputController)
         {
-            playerView = view;
-            playerModel = model;
+            this.playerView = playerView;
+            this.playerModel = playerModel;
+            this.inputController = inputController;
         }
-        
+
 
         public void Enable()
         {
@@ -45,7 +47,7 @@ namespace Game.Scripts.Logic
             }
             playerModel.IsMoving = false;
             
-            playerView.AnimateTranslationToTarget(target);
+            playerView.AnimateTranslationToTarget(target,inputController);
 
         }
         

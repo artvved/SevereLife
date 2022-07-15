@@ -1,4 +1,5 @@
 ﻿using Game.Scripts.Logic.Mode;
+using Game.Scripts.Logic.NearInteractable;
 using UnityEngine;
 
 namespace Game.Scripts.Logic
@@ -8,14 +9,15 @@ namespace Game.Scripts.Logic
         private RequirementView requirementView;
         private RequirementModel requirementModel;
         private InventoryController inventoryController;
-       
+        
 
-        public RequirementPresenter(RequirementView requirementView, RequirementModel requirementModel,
-            InventoryController inventoryController)
+
+        public RequirementPresenter(RequirementView requirementView, RequirementModel requirementModel, InventoryController inventoryController)
         {
             this.requirementView = requirementView;
             this.requirementModel = requirementModel;
             this.inventoryController = inventoryController;
+           
         }
 
         public RequirementPresenter(RequirementView requirementView, RequirementModel requirementModel)
@@ -32,6 +34,7 @@ namespace Game.Scripts.Logic
             {
                 requirementView.Destroy();
                 Disable();
+                
                 
             }
             else

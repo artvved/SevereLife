@@ -3,15 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Logic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputController : MonoBehaviour
 {
     private bool block = false;
     private Camera camera;
+    private EventSystem eventSystem;
 
     private void Start()
     {
         camera = Camera.main;
+        eventSystem = EventSystem.current;
     }
 
     public void Block()
@@ -27,7 +30,7 @@ public class InputController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !eventSystem.IsPointerOverGameObject())
         {
             if (!block)
             {

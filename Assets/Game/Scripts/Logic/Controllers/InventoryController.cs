@@ -20,8 +20,9 @@ namespace Game.Scripts.Logic
         private ItemModel[] items;
         private int firstEmptySlotPointer = 0;
         private bool isOpen = true;
-        
-        
+
+        public ItemModel[] Items => items;
+
 
         private void Start()
         {
@@ -37,8 +38,22 @@ namespace Game.Scripts.Logic
             }
 
             items[firstEmptySlotPointer] = itemModel;
-            slots[firstEmptySlotPointer].ChangePicture(itemSpriteParser.GetSpriteByItem(itemModel.ItemName));
+            slots[firstEmptySlotPointer].ChangePicture(itemSpriteParser.GetIconByItem(itemModel.ItemName));
             firstEmptySlotPointer++;
+        }
+
+        public void RemoveItem(ItemModel itemModel)
+        {
+            for (int i = items.Length - 1; i >= 0; i--)
+            {
+                if (itemModel.Equals(items[i]))
+                {
+                    items[i] = null;
+                    slots[i].SetDefaultPicture();
+                    firstEmptySlotPointer = i;
+                }
+            }
+            
         }
 
         private bool TryMerge(ItemModel itemModel)
@@ -49,12 +64,21 @@ namespace Game.Scripts.Logic
                 {
                     var newItem=itemMerger.Merge(items[i], itemModel);
                     items[i] = newItem;
-                    slots[i].ChangePicture(itemSpriteParser.GetSpriteByItem(newItem.ItemName));
+                    slots[i].ChangePicture(itemSpriteParser.GetIconByItem(newItem.ItemName));
                     return true;
                 }
             }
 
             return false;
+        }
+
+        public Sprite GetDialogItemSprite(ItemModel model)
+        {
+            if (model==null)
+            {
+                return null;
+            }
+            return itemSpriteParser.GetDialogSpriteByItem(model.ItemName);
         }
 
         public void ShowHideInventory()

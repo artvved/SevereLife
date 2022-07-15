@@ -26,15 +26,15 @@ namespace Game.Scripts.Logic.Mode
             canSpawn = true;
         }
 
-        public void StartSpawn(  CircleTapModeView circleTapModeView)
+        public void StartSpawn(  CircleTapModeTriggerView circleTapModeTriggerView)
         {
             
-            StartCoroutine(Spawn(  circleTapModeView));
+            StartCoroutine(Spawn(  circleTapModeTriggerView));
         }
 
-        private IEnumerator Spawn( CircleTapModeView circleTapModeView)
+        private IEnumerator Spawn( CircleTapModeTriggerView circleTapModeTriggerView)
         {
-            var count = circleTapModeView.CirclesCount;
+            var count = circleTapModeTriggerView.CirclesCount;
            
             for (int i = 0; i < count; i++)
             {
@@ -50,7 +50,7 @@ namespace Game.Scripts.Logic.Mode
                 
                 CircleView circleView = Instantiate(prefab, pos, Quaternion.identity);
                 CircleModel circleModel = new CircleModel(isFinal);
-                CirclePresenter circlePresenter = new CirclePresenter(circleView,circleModel, this,playerView,circleTapModeView);
+                CirclePresenter circlePresenter = new CirclePresenter(circleView,circleModel, this,playerView,circleTapModeTriggerView);
                 
                 circlePresenter.Enable();
 
