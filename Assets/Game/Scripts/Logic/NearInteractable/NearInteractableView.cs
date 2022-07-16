@@ -25,7 +25,6 @@ namespace Game.Scripts.Logic.NearInteractable
 
         private void Awake()
         {
-           
             modeTriggerView = GetComponentInChildren<IModeTriggerView>();
            
         }
@@ -39,6 +38,12 @@ namespace Game.Scripts.Logic.NearInteractable
         {
             this.enabled = true;
             GetComponent<Collider2D>().enabled = true;
+        }
+
+        public void DeactivateSelf()
+        {
+            this.enabled = false;
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 }

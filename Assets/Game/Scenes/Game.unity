@@ -774,7 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {fileID: 1227917379}
-  requiredItemName: 0
+  requiredItemName: 4
 --- !u!1 &152531429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,7 +2855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {fileID: 1569284961}
-  requiredItemName: 0
+  requiredItemName: 4
 --- !u!1001 &620799701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4421,7 +4421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {fileID: 1787470665}
-  requiredItemName: 0
+  requiredItemName: 4
 --- !u!1 &1258636240
 GameObject:
   m_ObjectHideFlags: 0
@@ -5540,7 +5540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {fileID: 1113017026}
-  requiredItemName: 0
+  requiredItemName: 4
 --- !u!1 &1842503722
 GameObject:
   m_ObjectHideFlags: 0

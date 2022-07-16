@@ -13,21 +13,27 @@ namespace Game.Scripts.Logic.Dialog
 
         private RectTransform rectTransform;
         private Canvas canvas;
+        private EventSystem eventSystem;
 
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
             canvas = GetComponentInParent<Canvas>();
+            eventSystem = EventSystem.current;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            DragEvent?.Invoke(eventData);
+            
+                DragEvent?.Invoke(eventData);
+            
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            DragEndEvent?.Invoke(eventData);
+            
+                DragEndEvent?.Invoke(eventData);
+            
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -48,13 +54,12 @@ namespace Game.Scripts.Logic.Dialog
 
         public void DragEnd()
         {
-            
         }
 
 
         public void SetPosition(RectTransform other)
         {
-            rectTransform.position = other.position ;
+            rectTransform.position = other.position;
         }
 
         public void Destroy()

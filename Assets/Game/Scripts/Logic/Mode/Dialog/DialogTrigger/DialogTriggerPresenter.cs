@@ -32,6 +32,8 @@ namespace Game.Scripts.Logic.Dialog
 
         private void OnTap()
         {
+            nearInteractableView.DeactivateSelf();
+            DisableTap();
             dialogTriggerView.ShowDialog();
             //spawn items
             var items = inventoryController.Items;
@@ -97,18 +99,29 @@ namespace Game.Scripts.Logic.Dialog
             DestroyItemModels();
             dialogTriggerView.HideDialog();
             playerView.OnShowHideControls();
+            EnableTap();
+            nearInteractableView.ActivateSelf();
         }
 
         public void Enable()
         {
-            dialogTriggerView.ModeEvent += OnTap;
+            EnableTap();
             leaveButton.onClick.AddListener(OnLeave);
         }
 
         public void Disable()
         {
-            dialogTriggerView.ModeEvent -= OnTap;
+            DisableTap();
             leaveButton.onClick.RemoveAllListeners();
+        }
+
+        private void EnableTap()
+        { 
+            dialogTriggerView.ModeEvent += OnTap;
+        }
+        private void DisableTap()
+        { 
+            dialogTriggerView.ModeEvent -= OnTap;
         }
     }
 }
