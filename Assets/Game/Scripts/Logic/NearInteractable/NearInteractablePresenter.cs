@@ -9,7 +9,7 @@ namespace Game.Scripts.Logic.NearInteractable
     {
         private NearInteractableView nearInteractableView;
         private PlayerView playerView;
-        private IModeTriggerView modeTriggerView;
+       
         private InventoryController inventoryController;
         private bool isItemRequired;
 
@@ -18,18 +18,41 @@ namespace Game.Scripts.Logic.NearInteractable
         {
             this.nearInteractableView = nearInteractableView;
             this.playerView = playerView;
-            modeTriggerView = nearInteractableView.ModeTriggerView;
+           
             isItemRequired = !this.nearInteractableView.RequiredItemName.Equals(ItemName.NOTHING);
            
             this.inventoryController = inventoryController;
         }
 
-        private void OnTap()
+      
+        private IEnumerator WaitForApproach()
         {
-         
+            yield return new WaitUntil(() =>
+                Math.Abs(playerView.transform.position.x - (nearInteractableView.StartPosition.transform.position.x)) <
+                0.01);
+            nearInteractableView.OnNextDoAction();
+           // modeTriggerView.OnMode();
+        }
+
+        public void Enable()
+        {
+            
+           
+            nearInteractableView.DoActionEvent += OnDoAction;
+        }
+
+        public void Disable()
+        { 
+            
+           
+            nearInteractableView.DoActionEvent -= OnDoAction;
+        }
+
+        private void OnDoAction()
+        {
             if (!isItemRequired)
             {
-               
+              
                 playerView.OnShowHideControls();
                 playerView.OnGoTo(nearInteractableView.StartPosition.transform);
                 nearInteractableView.StartCoroutine(WaitForApproach());
@@ -37,31 +60,11 @@ namespace Game.Scripts.Logic.NearInteractable
             else if (inventoryController != null &&
                      inventoryController.CheckForItem(nearInteractableView.RequiredItemName))
             {
-               
-                //nearInteractableView.Destroy();
-                Disable();
+
                 playerView.OnShowHideControls();
                 playerView.OnGoTo(nearInteractableView.StartPosition.transform);
                 nearInteractableView.StartCoroutine(WaitForApproach());
             }
-        }
-
-        private IEnumerator WaitForApproach()
-        {
-            yield return new WaitUntil(() =>
-                Math.Abs(playerView.transform.position.x - (nearInteractableView.StartPosition.transform.position.x)) <
-                0.01);
-            modeTriggerView.OnMode();
-        }
-
-        public void Enable()
-        {
-            nearInteractableView.TapEvent += OnTap;
-        }
-
-        public void Disable()
-        {
-            nearInteractableView.TapEvent -= OnTap;
         }
     }
 }

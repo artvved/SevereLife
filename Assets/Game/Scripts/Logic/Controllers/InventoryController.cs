@@ -55,6 +55,20 @@ namespace Game.Scripts.Logic
             }
             
         }
+        public void RemoveItem(ItemName itemName)
+        {
+            for (int i = items.Length - 1; i >= 0; i--)
+            {
+              
+                if (items[i]!=null && itemName.Equals(items[i].ItemName))
+                {
+                    items[i] = null;
+                    slots[i].SetDefaultPicture();
+                    firstEmptySlotPointer = i;
+                }
+            }
+            
+        }
 
         private bool TryMerge(ItemModel itemModel)
         {

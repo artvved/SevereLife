@@ -77,6 +77,7 @@ public class GameController : MonoBehaviour
         l.InitDialogTriggers(inventoryController,playerView);
         l.InitCircleModes(inventoryController,circleSpawner);
         l.InitNearInteractableViews(playerView,inventoryController);
+        l.InitWind(playerView,inventoryController);
         l.gameObject.SetActive(true);
     }
 

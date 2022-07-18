@@ -17,7 +17,7 @@ namespace Game.Scripts.Logic
             this.circleSpawner = circleSpawner;
         }
 
-        private void OnModeTrigger()
+        private void OnDoAction()
         {
             circleSpawner.StartSpawn(circleTapModeTriggerView);
         }
@@ -26,14 +26,13 @@ namespace Game.Scripts.Logic
         private void OnDestroy()
         {
             Disable();
-            if (circleTapModeTriggerView.NextInSequence == null && circleTapModeTriggerView.RewardItemModel != null)
+            if (circleTapModeTriggerView.RewardItemModel != null)
             {
-                //inventoryController.RemoveItem();
                 inventoryController.AddItem(circleTapModeTriggerView.RewardItemModel);
             }
             else
             {
-                circleTapModeTriggerView.NextInSequence.ActivateSelf();
+                circleTapModeTriggerView.OnNext();
             }
         }
 
@@ -41,13 +40,13 @@ namespace Game.Scripts.Logic
         
         public void Enable()
         {
-            circleTapModeTriggerView.ModeEvent += OnModeTrigger;
+            circleTapModeTriggerView.DoActionEvent += OnDoAction;
             circleTapModeTriggerView.DeathEvent += OnDestroy;
         }
 
         public void Disable()
         {
-            circleTapModeTriggerView.ModeEvent -= OnModeTrigger;
+            circleTapModeTriggerView.DoActionEvent -= OnDoAction;
             circleTapModeTriggerView.DeathEvent -= OnDestroy;
         }
     }

@@ -9,7 +9,7 @@ namespace Game.Scripts.Logic
         private RequirementView requirementView;
         private RequirementModel requirementModel;
         private InventoryController inventoryController;
-        
+
 
 
         public RequirementPresenter(RequirementView requirementView, RequirementModel requirementModel, InventoryController inventoryController)
@@ -26,16 +26,31 @@ namespace Game.Scripts.Logic
             this.requirementModel = requirementModel;
         }
 
+        
 
-        private void OnTap()
+
+        public void Enable()
+        {
+           
+            requirementView.DoActionEvent += OnDoAction;
+        }
+
+        public void Disable()
+        {
+           
+            requirementView.DoActionEvent -= OnDoAction;
+        }
+
+        private void OnDoAction()
         {
             //player has required item
             if (inventoryController != null && inventoryController.CheckForItem(requirementModel.ItemName))
             {
-                requirementView.Destroy();
-                Disable();
-                
-                
+                requirementView.OnNextDoAction();
+                if (requirementView.IsDestroyItem)
+                {
+                    inventoryController.RemoveItem(requirementModel.ItemName);
+                }
             }
             else
             {
@@ -44,19 +59,7 @@ namespace Game.Scripts.Logic
         }
 
 
-        public void Enable()
-        {
-            requirementView.TapEvent += OnTap;
-           
-        }
 
-        public void Disable()
-        {
-            requirementView.TapEvent -= OnTap;
-        }
 
-       
-
-        
     }
 }

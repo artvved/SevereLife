@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections;
 using Game.Scripts.Logic.Mode;
+using Game.Scripts.Logic.Mode.Quest;
 using UnityEngine;
 
 namespace Game.Scripts.Logic
 {
-    public class CircleTapModeTriggerView : MonoBehaviour,IModeTriggerView
+    public class CircleTapModeTriggerView : QuestAction
     {
         [SerializeField] private int circlesCount;
         
        
-        [SerializeField] private CircleTapModeTriggerView nextInSequence;
-
+        
         [SerializeField] private ItemView rewardItem;
         
         public ItemModel RewardItemModel;
@@ -19,7 +19,7 @@ namespace Game.Scripts.Logic
         public int CirclesCount => circlesCount;
 
       
-        public CircleTapModeTriggerView NextInSequence => nextInSequence;
+      
         
         
         private void Start()
@@ -55,13 +55,9 @@ namespace Game.Scripts.Logic
         }
         
         
-        public void ActivateSelf()
-        {
-            this.enabled = true;
-            GetComponent<Collider2D>().enabled = true;
-        }
+      
 
-        public event Action ModeEvent;
+       
         public event Action DeathEvent;
 
         private void OnDeath()
@@ -69,9 +65,6 @@ namespace Game.Scripts.Logic
             DeathEvent?.Invoke();
         }
 
-        public  void OnMode()
-        {
-            ModeEvent?.Invoke();
-        }
+        
     }
 }

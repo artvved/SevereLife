@@ -12,14 +12,15 @@ namespace Game.Scripts.Logic.Dialog
         private DialogTriggerView dialogTriggerView;
         private InventoryController inventoryController;
         private PlayerView playerView;
-        
+
         private DialogItemSpawnPlaceView[] places;
         private Button leaveButton;
-        private NearInteractableView nearInteractableView;
+       
 
         private List<DialogItemModel> dialogItemModels;
 
-        public DialogTriggerPresenter(DialogTriggerView dialogTriggerView, InventoryController inventoryController,PlayerView playerView)
+        public DialogTriggerPresenter(DialogTriggerView dialogTriggerView, InventoryController inventoryController,
+            PlayerView playerView)
         {
             this.dialogTriggerView = dialogTriggerView;
             this.inventoryController = inventoryController;
@@ -27,31 +28,10 @@ namespace Game.Scripts.Logic.Dialog
             this.places = dialogTriggerView.Places;
             leaveButton = dialogTriggerView.LeaveButton;
             dialogItemModels = new List<DialogItemModel>();
-            nearInteractableView = dialogTriggerView.NearInteractableView;
+           
         }
 
-        private void OnTap()
-        {
-            nearInteractableView.DeactivateSelf();
-            DisableTap();
-            dialogTriggerView.ShowDialog();
-            //spawn items
-            var items = inventoryController.Items;
-            for (int i = 0; i < items.Length; i++)
-            {
-                var m = items[i];
-                var sprite=inventoryController.GetDialogItemSprite(m);
-                if (sprite!=null)
-                {
-                    DialogItemModel model = new DialogItemModel(m);
-                    var view=dialogTriggerView.CreateDialogItem(places[i].transform);
-                    DialogItemPresenter presenter = new DialogItemPresenter(model,view);
-                    presenter.Enable();
-                    
-                    dialogItemModels.Add(model);
-                }
-            }
-        }
+        
 
 
         private void DestroyItemModels()
@@ -66,10 +46,12 @@ namespace Game.Scripts.Logic.Dialog
 
         private bool IsDialogComplete()
         {
-            if (dialogItemModels.Count==0)
+         
+            if (dialogItemModels.Count == 0)
             {
                 return false;
             }
+
             foreach (var m in dialogItemModels)
             {
                 if (!m.IsFit)
@@ -80,48 +62,70 @@ namespace Game.Scripts.Logic.Dialog
 
             return true;
         }
-        
+
 
         private void OnLeave()
         {
+           
             if (IsDialogComplete())
             {
                 for (int i = 0; i < dialogItemModels.Count; i++)
                 {
                     inventoryController.RemoveItem(dialogItemModels[i].ItemModel);
                 }
-                
-              
-                dialogTriggerView.Destroy();
-                nearInteractableView.Destroy();
 
+                DestroyItemModels();
+                dialogTriggerView.HideDialog();
+                playerView.OnShowHideControls();
+                dialogTriggerView.OnNext();
+                return;
             }
+
             DestroyItemModels();
             dialogTriggerView.HideDialog();
             playerView.OnShowHideControls();
-            EnableTap();
-            nearInteractableView.ActivateSelf();
+            
+            dialogTriggerView.OnBack();
+            
+           
         }
 
         public void Enable()
         {
-            EnableTap();
+           
             leaveButton.onClick.AddListener(OnLeave);
+            
+            dialogTriggerView.DoActionEvent += OnDoAction;
         }
 
         public void Disable()
         {
-            DisableTap();
+           
             leaveButton.onClick.RemoveAllListeners();
+            
         }
 
-        private void EnableTap()
-        { 
-            dialogTriggerView.ModeEvent += OnTap;
+        private void OnDoAction()
+        {
+            dialogTriggerView.ShowDialog();
+            //spawn items
+            var items = inventoryController.Items;
+            for (int i = 0; i < items.Length; i++)
+            {
+                var m = items[i];
+                var sprite = inventoryController.GetDialogItemSprite(m);
+                if (sprite != null)
+                {
+                    DialogItemModel model = new DialogItemModel(m);
+                    var view = dialogTriggerView.CreateDialogItem(places[i].transform);
+                    DialogItemPresenter presenter = new DialogItemPresenter(model, view);
+                    presenter.Enable();
+
+                    dialogItemModels.Add(model);
+                }
+            }
         }
-        private void DisableTap()
-        { 
-            dialogTriggerView.ModeEvent -= OnTap;
-        }
+
+
     }
 }

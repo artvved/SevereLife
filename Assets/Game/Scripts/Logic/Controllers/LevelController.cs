@@ -2,6 +2,7 @@
 using Game.Scripts.Logic.Dialog;
 using Game.Scripts.Logic.Mode;
 using Game.Scripts.Logic.NearInteractable;
+using Game.Scripts.Logic.Terrain;
 using UnityEngine;
 
 namespace Game.Scripts.Logic
@@ -24,6 +25,8 @@ namespace Game.Scripts.Logic
         
         [Header("NearInteractableViews")]
         [SerializeField]private NearInteractableView[] nearInteractableViews;
+
+        [SerializeField] private WaitModeView waitModeView;
         
 
 
@@ -94,8 +97,16 @@ namespace Game.Scripts.Logic
             }
         }
 
-        
+        public void InitWind(PlayerView playerView,InventoryController inventoryController)
+        {
+            var view = waitModeView;
+               
+            WaitModePresenter p = new WaitModePresenter(view,playerView,inventoryController);
+            p.Enable();
+        }
 
-  
+
+
+
     }
 }
