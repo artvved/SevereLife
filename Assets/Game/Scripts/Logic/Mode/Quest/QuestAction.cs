@@ -19,16 +19,17 @@ namespace Game.Scripts.Logic.Mode.Quest
         
         public virtual void OnNext()
         {
-           
+            IsActive = false;
             NextEvent?.Invoke();
         }
         public virtual event Action DoActionEvent;
         public virtual void DoAction()
         {
-           
+          
             if (IsActive)
             {
-                IsActive = false;
+             
+               
               
                 DoActionEvent?.Invoke();
             }
@@ -37,6 +38,7 @@ namespace Game.Scripts.Logic.Mode.Quest
         public virtual event Action NextDoActionEvent;
         public virtual void OnNextDoAction()
         {
+            IsActive = false;
           
             NextDoActionEvent?.Invoke();
         }
