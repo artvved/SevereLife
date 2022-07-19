@@ -11,7 +11,7 @@ namespace Game.Scripts.Logic.Mode.Quest
 
         public virtual void OnBack()
         {
-            Debug.Log("on back"+ this);
+         
             BackEvent?.Invoke();
         }
 
@@ -19,17 +19,17 @@ namespace Game.Scripts.Logic.Mode.Quest
         
         public virtual void OnNext()
         {
-            Debug.Log("on next "+ this);
+           
             NextEvent?.Invoke();
         }
         public virtual event Action DoActionEvent;
         public virtual void DoAction()
         {
-           //Debug.Log("Do action "+ this);
+           
             if (IsActive)
             {
                 IsActive = false;
-                Debug.Log("Do action true" + this);
+              
                 DoActionEvent?.Invoke();
             }
            
@@ -37,7 +37,7 @@ namespace Game.Scripts.Logic.Mode.Quest
         public virtual event Action NextDoActionEvent;
         public virtual void OnNextDoAction()
         {
-            Debug.Log("on next do act "+ this);
+          
             NextDoActionEvent?.Invoke();
         }
     }

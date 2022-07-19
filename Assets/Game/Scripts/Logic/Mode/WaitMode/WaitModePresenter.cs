@@ -36,7 +36,11 @@ namespace Game.Scripts.Logic.Terrain
             waitModeView.StartWaitAnim();
             yield return new WaitForSeconds(waitTime);
 
-            inventoryController.AddItem(itemModel);
+            if (itemModel!=null)
+            {
+                inventoryController.AddItem(itemModel);
+            }
+            waitModeView.OnNextDoAction();
             playerView.OnShowHideControls();
         }
 

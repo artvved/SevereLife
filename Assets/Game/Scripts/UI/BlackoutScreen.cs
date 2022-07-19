@@ -6,34 +6,36 @@ using UnityEngine;
 
 public class BlackoutScreen : MonoBehaviour
 {
- 
-    
-    public event Action DarkeningFinishedEvent;
-    public event Action LighteningFinishedEvent;
+    public bool IsDarkeningFinished { get; set; }
+    public bool IsLighteningFinished { get; set; }
 
     private Animator animator;
-
-    public Animator Animator => animator;
 
 
     public void DarkeningFinished()
     {
-        DarkeningFinishedEvent?.Invoke();
+       
+        IsDarkeningFinished = true;
+        IsLighteningFinished = false;
     }
+
     public void LighteningFinished()
     {
-        LighteningFinishedEvent?.Invoke();
+        IsDarkeningFinished = false;
+        IsLighteningFinished = true;
     }
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        IsDarkeningFinished = false;
     }
 
     public void StartDarkening()
     {
         animator.SetTrigger("Darkening");
     }
+
     public void StartLightening()
     {
         animator.SetTrigger("Lightening");

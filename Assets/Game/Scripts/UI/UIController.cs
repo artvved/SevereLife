@@ -26,24 +26,10 @@ public class UIController : MonoBehaviour
 
   
 
-    private bool isLighteningFinished;
-    private bool isDarkeningFinished;
-
+  
     void Start()
     {
-        
-        
 
-        blackoutScreen.DarkeningFinishedEvent += () =>
-        {
-            isDarkeningFinished = true;
-            isLighteningFinished = false;
-        };
-        blackoutScreen.LighteningFinishedEvent += () =>
-        {
-            isLighteningFinished = true;
-            isDarkeningFinished = false;
-        };
 
         menuScreen.StartGameEvent += () =>
         {
@@ -85,7 +71,7 @@ public class UIController : MonoBehaviour
     private IEnumerator StartGame()
     {
         gameController.BlockInput();
-        yield return new WaitUntil(() => isDarkeningFinished);
+        yield return new WaitUntil(() =>  blackoutScreen.IsDarkeningFinished );
         CloseScreen(menuScreen.gameObject);
         gameController.ShowPlayerReq();
         yield return new WaitForSeconds(2);
@@ -107,13 +93,16 @@ public class UIController : MonoBehaviour
 
     public void EnterExitHouse()
     {
+       
         blackoutScreen.StartDarkening();
         StartCoroutine(WaitForDarkeningThenEnter());
     }
 
     private IEnumerator WaitForDarkeningThenEnter()
     {
-        yield return new WaitUntil(() => isDarkeningFinished);
+       
+        yield return new WaitUntil(() => blackoutScreen.IsDarkeningFinished );
+       
         gameController.Enter();
     }
 }

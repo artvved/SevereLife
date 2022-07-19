@@ -22,8 +22,9 @@ public class GameController : MonoBehaviour
 
     
     [Header("Level")]
-    [SerializeField] private LevelController[] levels;
-    private int curLevel = 0;
+    [SerializeField] private LevelView[] levels;
+    private LevelController levelController;
+    [Header("Controller")]
     [SerializeField]
     private InventoryController inventoryController;
     [SerializeField]
@@ -40,8 +41,7 @@ public class GameController : MonoBehaviour
     
     //GameMode
     
-    [SerializeField]
-    private CircleSpawner circleSpawner;
+    [SerializeField] private CircleSpawner circleSpawner;
 
    
     
@@ -64,27 +64,18 @@ public class GameController : MonoBehaviour
         outEntrancePresenter.Enable();
         
         circleSpawner.InitFields(playerView);
-        
+        levelController = new LevelController(levels,inventoryController,playerView,circleSpawner);
 
-      
+
+
     }
 
-    private void InitLevel()
-    {
-        var l=levels[curLevel];
-        l.InitItems(inventoryController);
-        l.InitReqs(inventoryController);
-        l.InitDialogTriggers(inventoryController,playerView);
-        l.InitCircleModes(inventoryController,circleSpawner);
-        l.InitNearInteractableViews(playerView,inventoryController);
-        l.InitWind(playerView,inventoryController);
-        l.gameObject.SetActive(true);
-    }
+   
 
     void Start()
     {
         InitFields();
-        InitLevel();
+        levelController.InitNewLevel();
     }
 
     public void BlockInput()
