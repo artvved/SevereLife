@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Logic;
+using Game.Scripts.Logic.Audio;
 using UnityEngine;
 
 public class ItemView : MonoBehaviour,ITapable
@@ -10,6 +11,8 @@ public class ItemView : MonoBehaviour,ITapable
     [SerializeField] private ItemName itemName;
     [SerializeField] private MergeName mergeName;
     [SerializeField] private int level;
+    [Header("Sound")]
+    [SerializeField] private SoundView soundView;
     public ItemName ItemName => itemName;
     public MergeName MergeName => mergeName;
 
@@ -22,8 +25,13 @@ public class ItemView : MonoBehaviour,ITapable
     }
 
 
-    public void Destroy()
+    public void DeactivateAndHide()
     {
-        Destroy(gameObject);
+        var c = GetComponent<Collider2D>();
+        c.enabled = false;
+        var vis = GetComponentInChildren<SpriteRenderer>();
+        vis.enabled = false;
+        soundView.Play();
+       
     }
 }

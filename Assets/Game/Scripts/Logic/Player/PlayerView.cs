@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Logic;
+using Game.Scripts.Logic.Audio;
 using UnityEngine;
 
 public class PlayerView : MonoBehaviour,ITapable
 {
     private Animator playerAnimator;
+    [SerializeField] private SoundView soundView;
     
     public event Action TapEvent;
     public event Action ShowHideControlsEvent;
@@ -38,15 +40,18 @@ public class PlayerView : MonoBehaviour,ITapable
     }
     public void Idle()
     {
+        soundView.Stop();
         playerAnimator.SetTrigger("Idle");
     }
     public void Walk()
     {
+        soundView.Play();
         playerAnimator.SetTrigger("Walk");
     }
 
     public void Tool()
     {
+       
         playerAnimator.SetTrigger("Tool");
     }
 
@@ -69,7 +74,15 @@ public class PlayerView : MonoBehaviour,ITapable
 
         transform.position = targetPos;
         inputController.Unblock();
+        soundView.Stop();
     }
+
+    public event Action<Vector2> TurnEvent; 
+    public void OnTurn(Vector2 direction)
+    {
+        TurnEvent?.Invoke(direction);
+    }
+
 
 
 }

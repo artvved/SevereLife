@@ -11,7 +11,7 @@ namespace Game.Scripts.Logic.Terrain
         [SerializeField] private ItemView rewardItem;
         [SerializeField] private float waitTime;
 
-        [SerializeField] private Animator wheelAnimator;
+        [SerializeField] private VisualEffect visualEffect;
 
 
         public float WaitTime => waitTime;
@@ -24,12 +24,21 @@ namespace Game.Scripts.Logic.Terrain
 
         public void StartWaitAnim()
         {
-            wheelAnimator.SetTrigger("Spin");
+            if (visualEffect!=null)
+            {
+                visualEffect.StartAnimation();
+            }
+          
         }
 
         public void StopWaitAnim()
         {
-            wheelAnimator.SetTrigger("Idle");
+            if (visualEffect!=null)
+            {
+                visualEffect.StopAnimation();
+            }
+
+           
         }
     }
 }

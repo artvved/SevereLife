@@ -21,13 +21,10 @@ namespace Game.Scripts.Logic.NearInteractable
 
        
 
-        public void Destroy()
-        {
-            Destroy(this);
-        }
+      
 
        
 
-        //
+        
     }
 }

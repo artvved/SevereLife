@@ -38,9 +38,9 @@ namespace Game.Scripts.Logic.Dialog
             
         }
 
-        public DialogItemView CreateDialogItem(Transform parent)
+        public DialogItemView CreateDialogItem(Transform place)
         {
-            return Instantiate(prefab, parent);
+            return Instantiate(prefab, place);
         }
 
         

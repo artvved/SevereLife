@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34764043347463736}
   - component: {fileID: 8535538226352647614}
-  - component: {fileID: 8119479583550714058}
+  - component: {fileID: 4993022358987999523}
   m_Layer: 5
   m_Name: Visual
   m_TagString: Untagged
@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 90, y: 90}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8535538226352647614
 CanvasRenderer:
@@ -45,7 +45,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224164937897057056}
   m_CullTransparentMesh: 0
---- !u!114 &8119479583550714058
+--- !u!114 &4993022358987999523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

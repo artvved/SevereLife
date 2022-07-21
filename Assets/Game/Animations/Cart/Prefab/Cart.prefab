@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471682726549403395}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.33, y: 3.545, z: 0}
+  m_LocalPosition: {x: -7.33, y: 3.4799976, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8468838405335940664}
@@ -77,6 +77,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -98,11 +99,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -921208271
+  m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1841979955851400655, guid: cb4340b9e87f3a84eb20954053ccc69d,
-    type: 3}
+  m_Sprite: {fileID: -1841979955851400655, guid: cb4340b9e87f3a84eb20954053ccc69d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 3673271933501245546}
   m_Bounds:
-    m_Center: {x: -0.08140278, y: -0.1597662, z: 0}
+    m_Center: {x: -0.08139992, y: -0.15976763, z: 0}
     m_Extent: {x: 2.7685065, y: 2.773663, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -159,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621116808348662932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.1, y: 3.545, z: 0}
+  m_LocalPosition: {x: -7.1, y: 3.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8468838405335940664}
@@ -180,6 +180,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -201,11 +202,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -921208271
+  m_SortingLayer: 3
   m_SortingOrder: 4
-  m_Sprite: {fileID: -2581793310766701532, guid: cb4340b9e87f3a84eb20954053ccc69d,
-    type: 3}
+  m_Sprite: {fileID: -2581793310766701532, guid: cb4340b9e87f3a84eb20954053ccc69d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -232,8 +232,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 3034282334139986016}
   m_Bounds:
-    m_Center: {x: -0.07624555, y: -0.17454672, z: 0}
-    m_Extent: {x: 2.77, y: 2.7608802, z: 0}
+    m_Center: {x: -0.07624316, y: -0.1745491, z: 0}
+    m_Extent: {x: 2.7700002, y: 2.7608805, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &2155641112097112462
@@ -262,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2155641112097112462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.4400005, y: 8.5, z: 0}
+  m_LocalPosition: {x: -5.4400005, y: 8.434996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8468838405335940664}
@@ -283,6 +283,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -304,11 +305,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -921208271
+  m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: -855247150487254216, guid: cb4340b9e87f3a84eb20954053ccc69d,
-    type: 3}
+  m_Sprite: {fileID: -855247150487254216, guid: cb4340b9e87f3a84eb20954053ccc69d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
   - {fileID: 1805012040016381579}
   - {fileID: 4439294413974893681}
   m_Bounds:
-    m_Center: {x: -0.033241272, y: -0.17180872, z: 0}
+    m_Center: {x: -0.033237457, y: -0.17180824, z: 0}
     m_Extent: {x: 7.7361045, y: 4.9212627, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -367,7 +367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686459728293162962}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.3, y: 7.525, z: 0}
+  m_LocalPosition: {x: 7.3, y: 7.4599977, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8468838405335940664}
@@ -388,6 +388,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -409,11 +410,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -921208271
+  m_SortingLayer: 3
   m_SortingOrder: 3
-  m_Sprite: {fileID: 8158462111753956582, guid: cb4340b9e87f3a84eb20954053ccc69d,
-    type: 3}
+  m_Sprite: {fileID: 8158462111753956582, guid: cb4340b9e87f3a84eb20954053ccc69d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 1619142553096874551}
   m_Bounds:
-    m_Center: {x: -0.034511566, y: -0.210917, z: 0}
+    m_Center: {x: -0.034513474, y: -0.21091652, z: 0}
     m_Extent: {x: 5.7699995, y: 3.7500005, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -468,7 +468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2890924635842245547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.708213, y: 5.978487, z: 0}
+  m_LocalPosition: {x: -9.708213, y: 5.913483, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3034282334139986016}
@@ -625,7 +625,7 @@ Transform:
   m_GameObject: {fileID: 9165948095189275535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 9217683760794029194}
   - {fileID: 9014879585060614348}

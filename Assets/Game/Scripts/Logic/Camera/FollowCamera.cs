@@ -32,11 +32,13 @@ namespace Game.Scripts.Logic
         {
             if (target != null)
             {
-                var tr = target.position;
-                tr.x = Mathf.Clamp(target.position.x, leftX, rightX);
-                
-                transform.position = tr + offset;
-                
+                var targetPosition = target.position;
+                targetPosition.x = Mathf.Clamp(target.position.x, leftX, rightX);
+                var position = transform.position;
+                targetPosition.y = position.y;
+                targetPosition.z = position.z;
+                position = targetPosition ;
+                transform.position = position;
             }
         }
     }

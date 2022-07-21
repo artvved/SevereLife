@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Logic;
+using Game.Scripts.Logic.Audio;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,11 +11,13 @@ public class InputController : MonoBehaviour
     private bool block = false;
     private Camera camera;
     private EventSystem eventSystem;
+    private SoundView soundView;
 
     private void Start()
     {
         camera = Camera.main;
         eventSystem = EventSystem.current;
+        soundView = GetComponent<SoundView>();
     }
 
     public void Block()
@@ -43,6 +46,7 @@ public class InputController : MonoBehaviour
                     {
                         if (tapable != null)
                         {
+                            soundView.Play();
                             tapable.OnTap();
                         }
                     }

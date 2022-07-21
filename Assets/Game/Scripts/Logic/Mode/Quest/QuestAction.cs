@@ -25,12 +25,10 @@ namespace Game.Scripts.Logic.Mode.Quest
         public virtual event Action DoActionEvent;
         public virtual void DoAction()
         {
-          
+           
             if (IsActive)
-            {
-             
-               
-              
+            { 
+                IsActive = false;
                 DoActionEvent?.Invoke();
             }
            

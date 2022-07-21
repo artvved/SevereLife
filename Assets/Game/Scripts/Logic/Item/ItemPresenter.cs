@@ -20,7 +20,7 @@ namespace Game.Scripts.Logic
         {
             inventoryController.AddItem(itemModel);
             Disable();
-            itemView.Destroy();
+            itemView.DeactivateAndHide();
         }
         
 

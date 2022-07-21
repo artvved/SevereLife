@@ -23,12 +23,14 @@ namespace Game.Scripts.Logic
         {
             playerView.TapEvent += OnTap;
             playerView.GoToEvent += OnGoTo;
+            playerView.TurnEvent += Turn;
         }
         
         public void Disable()
         {
             playerView.TapEvent -= OnTap;
             playerView.GoToEvent -= OnGoTo;
+            playerView.TurnEvent -= Turn;
         }
 
 
@@ -66,10 +68,7 @@ namespace Game.Scripts.Logic
         
         private void PlayerMove(Vector2 direction)
         {
-            if (!direction.Equals(playerModel.MovingDirection))
-            {
-                FlipPLayer();
-            }
+            Turn(direction);
             playerModel.IsMoving = true;
             playerModel.MovingDirection = direction;
             playerView.Walk();
@@ -95,6 +94,14 @@ namespace Game.Scripts.Logic
         {
             playerModel.IsMoving = false;
             playerView.Idle();
+        }
+        
+        private void Turn(Vector2 direction)
+        {
+            if (!direction.Equals(playerModel.MovingDirection))
+            {
+                FlipPLayer();
+            }
         }
         
     }

@@ -20,7 +20,9 @@ namespace Game.Scripts.Logic
         }
 
         public void InitNewLevel()
-        {
+        {   //
+            curLevel = 0;
+            //
             curLevel++;
             var l=levels[curLevel];
             l.InitItems(inventoryController);
@@ -30,6 +32,7 @@ namespace Game.Scripts.Logic
             l.InitNearInteractableViews(playerView,inventoryController);
             l.InitWaitModes(playerView,inventoryController);
             l.InitLevelChangers(this,playerView);
+            l.PlacePlayer(playerView);
             l.gameObject.SetActive(true);
             if (curLevel!=0)
             {
