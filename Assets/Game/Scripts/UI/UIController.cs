@@ -60,10 +60,15 @@ public class UIController : MonoBehaviour
         {
             entranceButton.gameObject.SetActive(false);
         };
-        gameController.PlayerView.ShowHideControlsEvent += () =>
+        gameController.PlayerView.HideControlsEvent += () =>
         {
-          gameScreen.ShowHideButtons();
-          gameScreen.ShowHideInventory();
+          gameScreen.HideButtons();
+          gameScreen.HideInventory();
+        };
+        gameController.PlayerView.ShowControlsEvent += () =>
+        {
+            gameScreen.ShowButtons();
+            gameScreen.ShowInventory();
         };
 
     }

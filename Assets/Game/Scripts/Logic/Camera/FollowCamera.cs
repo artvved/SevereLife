@@ -19,6 +19,12 @@ namespace Game.Scripts.Logic
         private float rightX;
         private float cameraWidth;
 
+        public Transform Target
+        {
+            get => target;
+            set => target = value;
+        }
+
         private void Start()
         {
             cameraWidth = camera.orthographicSize * Screen.width / Screen.height;

@@ -76,14 +76,14 @@ namespace Game.Scripts.Logic.Dialog
 
                 DestroyItemModels();
                 dialogTriggerView.HideDialog();
-                playerView.OnShowHideControls();
+                playerView.OnShowControls();
                 dialogTriggerView.OnNext();
                 return;
             }
 
             DestroyItemModels();
             dialogTriggerView.HideDialog();
-            playerView.OnShowHideControls();
+            playerView.OnShowControls();
             
             dialogTriggerView.OnBack();
             

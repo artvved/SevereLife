@@ -50,9 +50,7 @@ MonoBehaviour:
   itemName: 0
   mergeName: 0
   level: 0
-  soundView: {fileID: 9056425919076269399}
-  tap: {fileID: 8300000, guid: d83fa339dd5f1d741b8965a7e267e432, type: 3}
-  pick: {fileID: 8300000, guid: 7f60297e62241cf4ab5177b757dba1da, type: 3}
+  soundEffect: {fileID: 9056425919076269399}
 --- !u!70 &8446799212509733609
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

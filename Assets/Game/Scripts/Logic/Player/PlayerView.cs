@@ -8,10 +8,11 @@ using UnityEngine;
 public class PlayerView : MonoBehaviour,ITapable
 {
     private Animator playerAnimator;
-    [SerializeField] private SoundView soundView;
+    [SerializeField] private SoundEffect soundEffect;
     
     public event Action TapEvent;
-    public event Action ShowHideControlsEvent;
+    public event Action HideControlsEvent;
+    public event Action ShowControlsEvent;
     public event Action<Transform> GoToEvent; 
 
     public void OnTap()
@@ -19,9 +20,13 @@ public class PlayerView : MonoBehaviour,ITapable
         TapEvent?.Invoke();
     }
 
-    public void OnShowHideControls()
+    public void OnHideControls()
     {
-        ShowHideControlsEvent?.Invoke();
+        HideControlsEvent?.Invoke();
+    }
+    public void OnShowControls()
+    {
+        ShowControlsEvent?.Invoke();
     }
     
     public void OnGoTo(Transform target)
@@ -40,12 +45,12 @@ public class PlayerView : MonoBehaviour,ITapable
     }
     public void Idle()
     {
-        soundView.Stop();
+        soundEffect.StopEffect();
         playerAnimator.SetTrigger("Idle");
     }
     public void Walk()
     {
-        soundView.Play();
+        soundEffect.StartEffect();
         playerAnimator.SetTrigger("Walk");
     }
 
@@ -74,7 +79,7 @@ public class PlayerView : MonoBehaviour,ITapable
 
         transform.position = targetPos;
         inputController.Unblock();
-        soundView.Stop();
+        soundEffect.StopEffect();
     }
 
     public event Action<Vector2> TurnEvent; 

@@ -11,13 +11,13 @@ public class InputController : MonoBehaviour
     private bool block = false;
     private Camera camera;
     private EventSystem eventSystem;
-    private SoundView soundView;
+    private SoundEffect soundEffect;
 
     private void Start()
     {
         camera = Camera.main;
         eventSystem = EventSystem.current;
-        soundView = GetComponent<SoundView>();
+        soundEffect = GetComponent<SoundEffect>();
     }
 
     public void Block()
@@ -46,7 +46,7 @@ public class InputController : MonoBehaviour
                     {
                         if (tapable != null)
                         {
-                            soundView.Play();
+                            soundEffect.StartEffect();
                             tapable.OnTap();
                         }
                     }

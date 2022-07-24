@@ -1,53 +1,45 @@
-﻿using Game.Scripts.Logic.Mode;
+﻿using Game.Scripts.Logic.Destroy;
+using Game.Scripts.Logic.Mode;
+using UnityEngine;
 
 namespace Game.Scripts.Logic
 {
     public class CircleTapModeTriggerPresenter : IPresenter
     {
-        private CircleTapModeTriggerView circleTapModeTriggerView;
-       
-        private InventoryController inventoryController;
+        private CircleTapModeTriggerView view;
+     
+      
         private CircleSpawner circleSpawner;
 
-        public CircleTapModeTriggerPresenter(CircleTapModeTriggerView circleTapModeTriggerView,  InventoryController inventoryController, CircleSpawner circleSpawner)
+        public CircleTapModeTriggerPresenter(CircleTapModeTriggerView view,  CircleSpawner circleSpawner)
         {
-            this.circleTapModeTriggerView = circleTapModeTriggerView;
+            this.view = view;
+            
            
-            this.inventoryController = inventoryController;
             this.circleSpawner = circleSpawner;
         }
 
         private void OnDoAction()
         {
-            circleSpawner.StartSpawn(circleTapModeTriggerView);
+            Debug.Log("on do");
+            circleSpawner.StartSpawn(view);
+            
         }
         
-        
-        private void OnDestroy()
-        {
-            Disable();
-            if (circleTapModeTriggerView.RewardItemModel != null)
-            {
-                inventoryController.AddItem(circleTapModeTriggerView.RewardItemModel);
-            }
-            else
-            {
-                circleTapModeTriggerView.OnNext();
-            }
-        }
+     
 
         
         
         public void Enable()
         {
-            circleTapModeTriggerView.DoActionEvent += OnDoAction;
-            circleTapModeTriggerView.DeathEvent += OnDestroy;
+            view.DoActionEvent += OnDoAction;
+           
         }
 
         public void Disable()
         {
-            circleTapModeTriggerView.DoActionEvent -= OnDoAction;
-            circleTapModeTriggerView.DeathEvent -= OnDestroy;
+            view.DoActionEvent -= OnDoAction;
+           
         }
     }
 }

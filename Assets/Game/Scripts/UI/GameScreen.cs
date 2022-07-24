@@ -10,15 +10,25 @@ public class GameScreen : MonoBehaviour
     [SerializeField] private InventoryController inventoryController;
 
 
-    public void ShowHideButtons()
+    public void HideButtons()
     {
-        bool activeSelf = buttons.activeSelf;
-        buttons.SetActive(!activeSelf);
+       
+        buttons.SetActive(false);
     }
 
-    public void ShowHideInventory()
+    public void HideInventory()
     {
-        bool activeSelf = inventoryController.gameObject.activeSelf;
-        inventoryController.gameObject.SetActive(!activeSelf);
+        inventoryController.gameObject.SetActive(false);
+    }
+    
+    public void ShowButtons()
+    {
+       
+        buttons.SetActive(true);
+    }
+
+    public void ShowInventory()
+    {
+        inventoryController.gameObject.SetActive(true);
     }
 }

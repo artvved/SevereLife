@@ -12,7 +12,7 @@ public class ItemView : MonoBehaviour,ITapable
     [SerializeField] private MergeName mergeName;
     [SerializeField] private int level;
     [Header("Sound")]
-    [SerializeField] private SoundView soundView;
+    [SerializeField] private SoundEffect soundEffect;
     public ItemName ItemName => itemName;
     public MergeName MergeName => mergeName;
 
@@ -31,7 +31,7 @@ public class ItemView : MonoBehaviour,ITapable
         c.enabled = false;
         var vis = GetComponentInChildren<SpriteRenderer>();
         vis.enabled = false;
-        soundView.Play();
+        soundEffect.StartEffect();
        
     }
 }

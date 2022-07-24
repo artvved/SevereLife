@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.Scripts.Logic.Mode;
+using Game.Scripts.Logic.Mode.Move;
 using Game.Scripts.Logic.Mode.Quest;
 using Game.Scripts.Logic.Sequence;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Game.Scripts.Logic.Terrain
         [SerializeField] private ItemView rewardItem;
         [SerializeField] private float waitTime;
 
-        [SerializeField] private VisualEffect visualEffect;
+        [SerializeField] private Effect[] effects;
 
 
         public float WaitTime => waitTime;
@@ -24,20 +25,25 @@ namespace Game.Scripts.Logic.Terrain
 
         public void StartWaitAnim()
         {
-            if (visualEffect!=null)
+            if (effects!=null && effects.Length!=0)
             {
-                visualEffect.StartAnimation();
+                foreach (var effect in effects)
+                {
+                    effect.StartEffect();
+                }
             }
           
         }
 
         public void StopWaitAnim()
         {
-            if (visualEffect!=null)
+            if (effects!=null && effects.Length!=0)
             {
-                visualEffect.StopAnimation();
+                foreach (var effect in effects)
+                {
+                    effect.StopEffect();
+                }
             }
-
            
         }
     }

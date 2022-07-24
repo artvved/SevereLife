@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.Scripts.Logic.Mode.Quest;
+using UnityEngine;
 
 namespace Game.Scripts.Logic.Sequence
 {
@@ -25,6 +26,15 @@ namespace Game.Scripts.Logic.Sequence
                 }
             }
         }
+        private void Print()
+        {
+            string str = "";
+            foreach (var el in actions)
+            {
+                str += el+" - "+el.IsActive +"\n\r";
+            }
+            Debug.Log(str);
+        }
 
         public void Enable()
         {
@@ -33,8 +43,8 @@ namespace Game.Scripts.Logic.Sequence
             for (int i = 0; i < actions.Length; i++)
             {
                 var el = actions[i];
-                
-                
+
+               // el.NextDoActionEvent += Print;
                 
                 if (i!=actions.Length-1)
                 {
@@ -52,8 +62,21 @@ namespace Game.Scripts.Logic.Sequence
                         actions[i1 + 1].DoAction();
                     };
                 }
+                else
+                {
+                    el.NextEvent += () =>
+                    {
+                        questView.DisableCollider();
+                    };
+                    
+                    el.NextDoActionEvent+= () =>
+                    {
+                        questView.DisableCollider();
+                    };
+                }
 
-                 
+
+
                 if (i!=0)
                 {
                     var i1 = i;
@@ -67,6 +90,11 @@ namespace Game.Scripts.Logic.Sequence
                 if (i==0)
                 {
                     el.IsActive = true;
+                    el.BackEvent += () =>
+                    {
+                        el.IsActive = true;
+                        
+                    };
                 }
                
 

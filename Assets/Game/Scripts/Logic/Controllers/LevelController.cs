@@ -20,19 +20,20 @@ namespace Game.Scripts.Logic
         }
 
         public void InitNewLevel()
-        {   //
-            curLevel = 0;
-            //
+        {   
             curLevel++;
             var l=levels[curLevel];
             l.InitItems(inventoryController);
             l.InitReqs(inventoryController);
             l.InitDialogTriggers(inventoryController,playerView);
-            l.InitCircleModes(inventoryController,circleSpawner);
+            l.InitCircleModes(circleSpawner);
+            l.InitDestroyModes(inventoryController);
             l.InitNearInteractableViews(playerView,inventoryController);
             l.InitWaitModes(playerView,inventoryController);
             l.InitLevelChangers(this,playerView);
+            l.InitPlayerShowers(playerView);
             l.PlacePlayer(playerView);
+            l.SetupCamera();
             l.gameObject.SetActive(true);
             if (curLevel!=0)
             {

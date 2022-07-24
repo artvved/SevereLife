@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Scripts.Logic.Destroy;
 using Game.Scripts.Logic.Dialog;
 using Game.Scripts.Logic.Mode;
 using Game.Scripts.Logic.Mode.LevelChanger;
@@ -20,7 +21,8 @@ namespace Game.Scripts.Logic
 
         [Header("Dialogs")] [SerializeField] private DialogTriggerView[] dialogViews;
 
-        [Header("ModeViews")] [SerializeField] private CircleTapModeTriggerView[] modeViews;
+        [Header("Circle tap Views")] [SerializeField] private CircleTapModeTriggerView[] modeViews;
+        [Header("Destroy Views")] [SerializeField] private DestroyActionView[] destroyActionViews;
 
         [Header("NearInteractableViews")] [SerializeField]
         private NearInteractableView[] nearInteractableViews;
@@ -30,12 +32,23 @@ namespace Game.Scripts.Logic
 
         [Header("LevelChangeModeView")] [SerializeField]
         private LevelChangeModeView[] levelChangeModeViews;
+        
+        [Header("Player controls showers")] [SerializeField]
+        private ControlsShowerView[] controlsShowerViews;
 
         [Header("Player place")] [SerializeField]
         private Transform startPos;
 
         [SerializeField] private Vector2 direction;
+        
+        [Header("Player place")] [SerializeField]
+        private Transform cameraTarget;
 
+
+        public void SetupCamera()
+        {
+            Camera.main.GetComponent<FollowCamera>().Target = cameraTarget;
+        }
 
         public void InitItems(InventoryController inventoryController)
         {
@@ -69,15 +82,37 @@ namespace Game.Scripts.Logic
                 p.Enable();
             }
         }
+        public void InitPlayerShowers(PlayerView playerView)
+        {
+            for (int i = 0; i < controlsShowerViews.Length; i++)
+            {
+                var view = controlsShowerViews[i];
 
-        public void InitCircleModes(InventoryController inventoryController, CircleSpawner circleSpawner)
+                ControlsShowerPresenter p = new ControlsShowerPresenter(view,  playerView);
+                p.Enable();
+            }
+        }
+
+        public void InitCircleModes( CircleSpawner circleSpawner)
         {
             for (int i = 0; i < modeViews.Length; i++)
             {
                 var view = modeViews[i];
 
                 CircleTapModeTriggerPresenter p =
-                    new CircleTapModeTriggerPresenter(view, inventoryController, circleSpawner);
+                    new CircleTapModeTriggerPresenter(view, circleSpawner);
+                p.Enable();
+            }
+        }
+        
+        public void InitDestroyModes( InventoryController inventoryController)
+        {
+            for (int i = 0; i < destroyActionViews.Length; i++)
+            {
+                var view = destroyActionViews[i];
+
+                DestroyActionPresenter p =
+                    new DestroyActionPresenter(view, inventoryController);
                 p.Enable();
             }
         }
@@ -118,6 +153,7 @@ namespace Game.Scripts.Logic
         public void PlacePlayer(PlayerView playerView)
         {
             playerView.transform.position = startPos.position;
+            playerView.transform.SetParent(startPos.parent);
             playerView.OnTurn(direction);
         }
     }

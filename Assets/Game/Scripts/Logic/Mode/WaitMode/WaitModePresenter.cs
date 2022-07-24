@@ -40,8 +40,8 @@ namespace Game.Scripts.Logic.Terrain
             {
                 inventoryController.AddItem(itemModel);
             }
-            waitModeView.OnNextDoAction();
-            playerView.OnShowHideControls();
+            waitModeView.NextDoAction();
+            playerView.OnShowControls();
         }
 
         public void Enable()

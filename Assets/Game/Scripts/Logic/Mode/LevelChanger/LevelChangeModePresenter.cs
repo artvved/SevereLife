@@ -30,14 +30,14 @@ namespace Game.Scripts.Logic.Mode.LevelChanger
 
         private IEnumerator LevelChangeAnimation()
         {
-            playerView.OnShowHideControls();
+            playerView.OnHideControls();
             levelCompleteView.Show();
             yield return new WaitUntil(() => levelCompleteView.IsFinished);
             blackoutScreen.StartDarkening();
             yield return new WaitUntil(() => blackoutScreen.IsDarkeningFinished);
             levelCompleteView.Idle();
             levelController.InitNewLevel();
-            playerView.OnShowHideControls();
+            playerView.OnShowControls();
         }
 
         public void Enable()

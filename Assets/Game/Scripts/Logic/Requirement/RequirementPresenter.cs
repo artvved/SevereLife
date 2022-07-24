@@ -46,7 +46,7 @@ namespace Game.Scripts.Logic
             //player has required item
             if (inventoryController != null && inventoryController.CheckForItem(requirementModel.ItemName))
             {
-                requirementView.OnNextDoAction();
+                requirementView.NextDoAction();
                 if (requirementView.IsDestroyItem)
                 {
                     inventoryController.RemoveItem(requirementModel.ItemName);
@@ -55,6 +55,7 @@ namespace Game.Scripts.Logic
             else
             {
                 requirementView.ShowRequirement();
+                requirementView.IsActive = true;
             }
         }
 

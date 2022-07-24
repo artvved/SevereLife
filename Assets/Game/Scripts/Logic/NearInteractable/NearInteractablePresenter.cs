@@ -30,7 +30,7 @@ namespace Game.Scripts.Logic.NearInteractable
             yield return new WaitUntil(() =>
                 Math.Abs(playerView.transform.position.x - (nearInteractableView.StartPosition.transform.position.x)) <
                 0.01);
-            nearInteractableView.OnNextDoAction();
+            nearInteractableView.NextDoAction();
            // modeTriggerView.OnMode();
         }
 
@@ -53,7 +53,7 @@ namespace Game.Scripts.Logic.NearInteractable
             if (!isItemRequired)
             {
               
-                playerView.OnShowHideControls();
+                playerView.OnHideControls();
                 playerView.OnGoTo(nearInteractableView.StartPosition.transform);
                 nearInteractableView.StartCoroutine(WaitForApproach());
             }
@@ -61,7 +61,7 @@ namespace Game.Scripts.Logic.NearInteractable
                      inventoryController.CheckForItem(nearInteractableView.RequiredItemName))
             {
 
-                playerView.OnShowHideControls();
+                playerView.OnHideControls();
                 playerView.OnGoTo(nearInteractableView.StartPosition.transform);
                 nearInteractableView.StartCoroutine(WaitForApproach());
             }
