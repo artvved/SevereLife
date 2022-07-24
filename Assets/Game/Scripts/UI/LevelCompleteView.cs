@@ -12,6 +12,7 @@ namespace Game.Scripts.UI
         public void OnFinishedShow()
         {
             IsFinished = true;
+            animator.SetTrigger("Stay");
         }
 
         public void Show()
