@@ -44,11 +44,23 @@ TagManager:
   - name: BG
     uniqueID: 3539692123
     locked: 0
+  - name: People
+    uniqueID: 261412797
+    locked: 0
+  - name: Shops
+    uniqueID: 1177265561
+    locked: 0
+  - name: Bad Man
+    uniqueID: 3686405967
+    locked: 0
   - name: Requirements
     uniqueID: 1903211319
     locked: 0
   - name: Player
     uniqueID: 3373759025
+    locked: 0
+  - name: Wolf
+    uniqueID: 3704064843
     locked: 0
   - name: Dialog
     uniqueID: 3603760599

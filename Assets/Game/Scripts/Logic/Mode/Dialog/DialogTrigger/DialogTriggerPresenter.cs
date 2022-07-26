@@ -46,7 +46,7 @@ namespace Game.Scripts.Logic.Dialog
 
         private bool IsDialogComplete()
         {
-         
+            Debug.Log(dialogItemModels.Count);
             if (dialogItemModels.Count == 0)
             {
                 return false;
@@ -54,6 +54,7 @@ namespace Game.Scripts.Logic.Dialog
 
             foreach (var m in dialogItemModels)
             {
+                Debug.Log(m+" - "+ m.IsFit);
                 if (!m.IsFit)
                 {
                     return false;
@@ -92,17 +93,14 @@ namespace Game.Scripts.Logic.Dialog
 
         public void Enable()
         {
-           
             leaveButton.onClick.AddListener(OnLeave);
-            
             dialogTriggerView.DoActionEvent += OnDoAction;
         }
 
         public void Disable()
         {
-           
             leaveButton.onClick.RemoveAllListeners();
-            
+            dialogTriggerView.DoActionEvent -= OnDoAction;
         }
 
         private void OnDoAction()
@@ -117,13 +115,24 @@ namespace Game.Scripts.Logic.Dialog
                 if (sprite != null)
                 {
                     DialogItemModel model = new DialogItemModel(m);
-                    var view = dialogTriggerView.CreateDialogItem(places[i].transform);
+                    var view = dialogTriggerView.CreateDialogItem(places[i].transform,sprite);
                     DialogItemPresenter presenter = new DialogItemPresenter(model, view);
                     presenter.Enable();
 
                     dialogItemModels.Add(model);
                 }
             }
+
+            //add default
+            for (int i = 0; i < places.Length; i++)
+            {
+                if (places[i].DefModel!=null)
+                {
+                    dialogItemModels.Add(places[i].DefModel);
+                }
+                
+            }
+            
         }
 
 

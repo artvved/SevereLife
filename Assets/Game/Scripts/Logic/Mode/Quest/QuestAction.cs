@@ -19,14 +19,14 @@ namespace Game.Scripts.Logic.Mode.Quest
         
         public virtual void OnNext()
         {
-            Debug.Log("next "+this);
+            //Debug.Log("next "+this);
             IsActive = false;
             NextEvent?.Invoke();
         }
         public virtual event Action DoActionEvent;
         public virtual void DoAction()
         {
-           Debug.Log("do act "+ IsActive+" + "+this);
+           //Debug.Log("do act "+ IsActive+" + "+this);
             if (IsActive)
             {
                 IsActive = false;
@@ -37,7 +37,7 @@ namespace Game.Scripts.Logic.Mode.Quest
         public virtual event Action NextDoActionEvent;
         public virtual void NextDoAction()
         {
-            Debug.Log("next do act "+this);
+            //Debug.Log("next do act "+this);
             IsActive = false;
           
             NextDoActionEvent?.Invoke();

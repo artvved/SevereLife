@@ -43,11 +43,14 @@ namespace Game.Scripts.Logic
         
         [Header("Player place")] [SerializeField]
         private Transform cameraTarget;
+        [SerializeField]  private Transform leftBorder;
+        [SerializeField]  private Transform rightBorder;
 
 
         public void SetupCamera()
         {
-            Camera.main.GetComponent<FollowCamera>().Target = cameraTarget;
+            var cam=Camera.main.GetComponent<FollowCamera>(); 
+            cam.Setup(cameraTarget,leftBorder,rightBorder);
         }
 
         public void InitItems(InventoryController inventoryController)

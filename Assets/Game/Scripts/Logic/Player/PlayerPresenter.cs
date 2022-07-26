@@ -70,7 +70,7 @@ namespace Game.Scripts.Logic
         {
             Turn(direction);
             playerModel.IsMoving = true;
-            playerModel.MovingDirection = direction;
+            
             playerView.Walk();
         }
 
@@ -102,6 +102,8 @@ namespace Game.Scripts.Logic
             {
                 FlipPLayer();
             }
+
+            playerModel.MovingDirection = direction;
         }
         
     }

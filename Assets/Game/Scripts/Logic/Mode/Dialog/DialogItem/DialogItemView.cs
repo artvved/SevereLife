@@ -66,5 +66,10 @@ namespace Game.Scripts.Logic.Dialog
         {
             Destroy(gameObject);
         }
+
+        public void Hide()
+        {
+           gameObject.SetActive(false);
+        }
     }
 }

@@ -37,13 +37,16 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
 
         private void OnEndDrag(PointerEventData eventData)
         {
+            Debug.Log("End drug, is fit - "+dialogItemModel.IsFit);
           
             if (dialogItemModel.IsFit)
             {
-               
                 dialogItemView.SetPosition(dialogItemModel.PlaceView.GetComponent<RectTransform>());
+                if ( dialogItemModel.PlaceView!=null)
+                {
+                    dialogItemModel.PlaceView.FitComplete(dialogItemView);
+                }
                 Disable();
-                
             }
         }
 
@@ -56,10 +59,9 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
         {
            
             var place = other.gameObject.GetComponent<DialogItemFitPlaceView>();
-          
+            Debug.Log("Enter " + other);
             if (place!=null)
             {
-               
                 dialogItemModel.Fit(place);
             }
           
@@ -67,9 +69,14 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
         }
 
         private void OnTriggerExit(Collider2D other)
-        {
-           
-            dialogItemModel.UnFit();
+        { 
+            var place = other.gameObject.GetComponent<DialogItemFitPlaceView>();
+            Debug.Log("Exit");
+            if (place!=null)
+            {
+                dialogItemModel.UnFit(place);
+            }
+            
         }
 
 
@@ -77,6 +84,8 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
         {
             Disable();
             dialogItemView.Destroy();
+           
+            
             dialogItemModel = null;
         }
     }

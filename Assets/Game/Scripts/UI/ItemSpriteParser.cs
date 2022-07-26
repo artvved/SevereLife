@@ -15,11 +15,18 @@ namespace Game.Scripts.UI
         [SerializeField] private Sprite wheat;
         [SerializeField] private Sprite gear;
         [SerializeField] private Sprite bagOfWheat;
+        [SerializeField] private Sprite coin;
+        [SerializeField] private Sprite nails;
+        [SerializeField] private Sprite carrot;
         
         
 
         [Header("Dialog item")]
         [SerializeField] private Sprite dialogGear;
+        [SerializeField] private Sprite dialogNails;
+        [SerializeField] private Sprite dialogSpoke1;
+        [SerializeField] private Sprite dialogSpoke2;
+        [SerializeField] private Sprite dialogSpoke3;
 
         private Dictionary<ItemName, Sprite> inventoryIconsDictionary;
         private Dictionary<ItemName, Sprite> dialogItemsDictionary;
@@ -32,9 +39,16 @@ namespace Game.Scripts.UI
             inventoryIconsDictionary.Add(ItemName.WHEAT,wheat);
             inventoryIconsDictionary.Add(ItemName.GEAR,gear);
             inventoryIconsDictionary.Add(ItemName.BAG_OF_WHEAT,bagOfWheat);
+            inventoryIconsDictionary.Add(ItemName.COIN,coin);
+            inventoryIconsDictionary.Add(ItemName.NAILS,nails);
+            inventoryIconsDictionary.Add(ItemName.CARROT,carrot);
             
             dialogItemsDictionary = new Dictionary<ItemName, Sprite>();
             dialogItemsDictionary.Add(ItemName.GEAR,dialogGear);
+            dialogItemsDictionary.Add(ItemName.NAILS,dialogNails);
+            dialogItemsDictionary.Add(ItemName.SPOKE_1,dialogSpoke1);
+            dialogItemsDictionary.Add(ItemName.SPOKE_2,dialogSpoke2);
+            dialogItemsDictionary.Add(ItemName.SPOKE_3,dialogSpoke3);
         }
 
         public ItemName GetItemBySpite(Sprite sprite)
@@ -54,6 +68,7 @@ namespace Game.Scripts.UI
         {
             Sprite val;
              dialogItemsDictionary.TryGetValue(item, out val);
+           
              return val;
             
         }

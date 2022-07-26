@@ -18,6 +18,7 @@ namespace Game.Scripts.Logic.Dialog
         [SerializeField] private DialogItemView prefab;
 
 
+
         public DialogItemSpawnPlaceView[] Places => places;
 
         public Button LeaveButton => leaveButton;
@@ -38,9 +39,11 @@ namespace Game.Scripts.Logic.Dialog
             
         }
 
-        public DialogItemView CreateDialogItem(Transform place)
+        public DialogItemView CreateDialogItem(Transform place,Sprite sprite)
         {
-            return Instantiate(prefab, place);
+            var res= Instantiate(prefab, place);
+            res.GetComponentInChildren<Image>().sprite = sprite;
+            return res;
         }
 
         

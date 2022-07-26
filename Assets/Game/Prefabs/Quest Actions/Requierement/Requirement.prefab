@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5980916281577951227}
   - component: {fileID: 6917616302687137985}
   - component: {fileID: 1895542009013586576}
-  - component: {fileID: 2497588969583594169}
   m_Layer: 0
   m_Name: Requirement
   m_TagString: Untagged
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1903211319
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d8c5eebda09ae8c47aab8bc0207ceeac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -103,19 +102,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2497588969583594169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536842829526486507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea2241ee518c463da83470df00618c27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requirementName: 0
 --- !u!1 &6093694499963329888
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4294873479110908375}
+  - component: {fileID: 6457429236704099410}
   m_Layer: 0
   m_Name: Requirement
   m_TagString: Untagged
@@ -147,3 +134,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6457429236704099410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6093694499963329888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2241ee518c463da83470df00618c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1895542009013586576}
+  itemName: 0
+  isDestroyItem: 0

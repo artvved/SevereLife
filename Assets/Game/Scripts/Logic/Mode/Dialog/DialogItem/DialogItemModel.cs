@@ -21,17 +21,27 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
 
         public void Fit(DialogItemFitPlaceView place)
         {
-            if (place.ItemName.Equals(itemModel.ItemName))
+            if (!place.Equals(PlaceView))
             {
-                isFit = true;
-                PlaceView = place;
+                Debug.Log((place.ItemName + " - " + itemModel.ItemName));
+                if (place.ItemName.Equals(itemModel.ItemName))
+                {
+                    isFit = true;
+                    PlaceView = place;
+                    Debug.Log("is fit");
+                }
             }
         }
 
-        public void UnFit()
+        public void UnFit(DialogItemFitPlaceView place)
         {
-            isFit = false;
-            PlaceView = null;
+            if (!place.Equals(PlaceView))
+            {
+
+                isFit = false;
+                PlaceView = null;
+                Debug.Log("unfit");
+            }
         }
 
 

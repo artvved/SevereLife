@@ -47,5 +47,14 @@ namespace Game.Scripts.Logic
                 transform.position = position;
             }
         }
+
+        public void Setup(Transform cameraTarget, Transform left, Transform right)
+        {
+            target = cameraTarget;
+            this.leftBorder = left;
+            this.rightBorder = right;
+            leftX = leftBorder.position.x+cameraWidth;
+            rightX = rightBorder.position.x-cameraWidth;
+        }
     }
 }
