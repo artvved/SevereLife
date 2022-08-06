@@ -7,8 +7,17 @@ using UnityEngine;
 public class GameScreen : MonoBehaviour
 {
     [SerializeField] private GameObject buttons;
+    [SerializeField] private GameObject hint;
     [SerializeField] private InventoryController inventoryController;
 
+    public void HideHint()
+    {
+        hint.SetActive(false);
+    }
+    public void ShowHint()
+    {
+        hint.SetActive(true);
+    }
 
     public void HideButtons()
     {

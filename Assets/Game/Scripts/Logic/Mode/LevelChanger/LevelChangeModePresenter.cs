@@ -12,19 +12,22 @@ namespace Game.Scripts.Logic.Mode.LevelChanger
         private LevelCompleteView levelCompleteView;
         private BlackoutScreen blackoutScreen;
         private PlayerView playerView;
+        private AdController adController;
 
         private void OnDoAction()
         {
             levelChangeModeView.StartCoroutine(LevelChangeAnimation());;
         }
 
-        public LevelChangeModePresenter(LevelChangeModeView levelChangeModeView, LevelController levelController,PlayerView playerView)
+        public LevelChangeModePresenter(LevelChangeModeView levelChangeModeView, LevelController levelController,PlayerView playerView,AdController adController)
         {
             this.levelChangeModeView = levelChangeModeView;
             this.levelController = levelController;
             this.playerView = playerView;
+            this.adController = adController;
             levelCompleteView = this.levelChangeModeView.LevelCompleteView;
             blackoutScreen = this.levelChangeModeView.BlackoutScreen;
+            
         }
 
 
@@ -36,6 +39,9 @@ namespace Game.Scripts.Logic.Mode.LevelChanger
             blackoutScreen.StartDarkening();
             yield return new WaitUntil(() => blackoutScreen.IsDarkeningFinished);
             levelCompleteView.Idle();
+           
+            adController.ShowLevelChangeAd();
+           
             levelController.InitNewLevel();
             playerView.OnShowControls();
         }

@@ -18,6 +18,7 @@ namespace Game.Scripts.UI
         [SerializeField] private Sprite coin;
         [SerializeField] private Sprite nails;
         [SerializeField] private Sprite carrot;
+        [SerializeField] private Sprite bagOfMoney;
         
         
 
@@ -27,9 +28,17 @@ namespace Game.Scripts.UI
         [SerializeField] private Sprite dialogSpoke1;
         [SerializeField] private Sprite dialogSpoke2;
         [SerializeField] private Sprite dialogSpoke3;
+        
+        [Header("Hints")]
+        [SerializeField] private Sprite bladeHint;
+        [SerializeField] private Sprite stickHint;
+        [SerializeField] private Sprite gearHint;
+        [SerializeField] private Sprite carrotHint;
+        [SerializeField] private Sprite nailsHint;
 
         private Dictionary<ItemName, Sprite> inventoryIconsDictionary;
         private Dictionary<ItemName, Sprite> dialogItemsDictionary;
+        private Dictionary<ItemName, Sprite> hintSpritesDictionary;
         private void Start()
         {
             inventoryIconsDictionary = new Dictionary<ItemName, Sprite>();
@@ -42,6 +51,7 @@ namespace Game.Scripts.UI
             inventoryIconsDictionary.Add(ItemName.COIN,coin);
             inventoryIconsDictionary.Add(ItemName.NAILS,nails);
             inventoryIconsDictionary.Add(ItemName.CARROT,carrot);
+            inventoryIconsDictionary.Add(ItemName.BAG_OF_MONEY,bagOfMoney);
             
             dialogItemsDictionary = new Dictionary<ItemName, Sprite>();
             dialogItemsDictionary.Add(ItemName.GEAR,dialogGear);
@@ -49,6 +59,13 @@ namespace Game.Scripts.UI
             dialogItemsDictionary.Add(ItemName.SPOKE_1,dialogSpoke1);
             dialogItemsDictionary.Add(ItemName.SPOKE_2,dialogSpoke2);
             dialogItemsDictionary.Add(ItemName.SPOKE_3,dialogSpoke3);
+            
+            hintSpritesDictionary = new Dictionary<ItemName, Sprite>();
+            hintSpritesDictionary.Add(ItemName.GEAR,gearHint);
+            hintSpritesDictionary.Add(ItemName.NAILS,nailsHint);
+            hintSpritesDictionary.Add(ItemName.BLADE,bladeHint);
+            hintSpritesDictionary.Add(ItemName.STICK,stickHint);
+            hintSpritesDictionary.Add(ItemName.CARROT,carrotHint);
         }
 
         public ItemName GetItemBySpite(Sprite sprite)
@@ -71,6 +88,15 @@ namespace Game.Scripts.UI
            
              return val;
             
+        }
+
+
+        public Sprite GetHintSpriteByItem(ItemName item)
+        {
+            Sprite val;
+            hintSpritesDictionary.TryGetValue(item, out val);
+           
+            return val;
         }
 
     }

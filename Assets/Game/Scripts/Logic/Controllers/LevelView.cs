@@ -19,7 +19,9 @@ namespace Game.Scripts.Logic
         private RequirementView[] requirementViews;
 
 
-        [Header("Dialogs")] [SerializeField] private DialogTriggerView[] dialogViews;
+        [Header("Dialogs")] 
+        [SerializeField] private DialogTriggerView[] dialogViews;
+        [SerializeField] private DialogDealView[] dialogDealViews;
 
         [Header("Circle tap Views")] [SerializeField] private CircleTapModeTriggerView[] modeViews;
         [Header("Destroy Views")] [SerializeField] private DestroyActionView[] destroyActionViews;
@@ -85,6 +87,18 @@ namespace Game.Scripts.Logic
                 p.Enable();
             }
         }
+        
+        public void InitDealDialogTriggers(InventoryController inventoryController, PlayerView playerView)
+        {
+            for (int i = 0; i < dialogDealViews.Length; i++)
+            {
+                var view = dialogDealViews[i];
+
+                DialogDealPresenter p = new DialogDealPresenter(view, playerView,inventoryController);
+                p.Enable();
+            }
+        }
+        
         public void InitPlayerShowers(PlayerView playerView)
         {
             for (int i = 0; i < controlsShowerViews.Length; i++)
@@ -142,13 +156,13 @@ namespace Game.Scripts.Logic
             }
         }
 
-        public void InitLevelChangers(LevelController levelController, PlayerView playerView)
+        public void InitLevelChangers(LevelController levelController, PlayerView playerView,AdController adController)
         {
             for (int i = 0; i < levelChangeModeViews.Length; i++)
             {
                 var view = levelChangeModeViews[i];
 
-                LevelChangeModePresenter p = new LevelChangeModePresenter(view, levelController, playerView);
+                LevelChangeModePresenter p = new LevelChangeModePresenter(view, levelController, playerView,adController);
                 p.Enable();
             }
         }

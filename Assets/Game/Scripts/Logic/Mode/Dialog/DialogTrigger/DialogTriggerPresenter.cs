@@ -46,7 +46,7 @@ namespace Game.Scripts.Logic.Dialog
 
         private bool IsDialogComplete()
         {
-            Debug.Log(dialogItemModels.Count);
+           
             if (dialogItemModels.Count == 0)
             {
                 return false;
@@ -54,7 +54,7 @@ namespace Game.Scripts.Logic.Dialog
 
             foreach (var m in dialogItemModels)
             {
-                Debug.Log(m+" - "+ m.IsFit);
+               
                 if (!m.IsFit)
                 {
                     return false;

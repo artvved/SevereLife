@@ -8,7 +8,6 @@ namespace Game.Scripts.Logic
     public class InventoryController : MonoBehaviour
     {
         //view
-        [SerializeField] private Button openButton;
         [SerializeField] private SlotsBarView slotsBar;
         [SerializeField] private SlotView[] slots;
         
@@ -65,6 +64,7 @@ namespace Game.Scripts.Logic
                     items[i] = null;
                     slots[i].SetDefaultPicture();
                     firstEmptySlotPointer = i;
+                    return;
                 }
             }
             

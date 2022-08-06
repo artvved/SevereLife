@@ -64,11 +64,13 @@ public class UIController : MonoBehaviour
         {
           gameScreen.HideButtons();
           gameScreen.HideInventory();
+          gameScreen.HideHint();
         };
         gameController.PlayerView.ShowControlsEvent += () =>
         {
             gameScreen.ShowButtons();
             gameScreen.ShowInventory();
+            gameScreen.ShowHint();
         };
 
     }

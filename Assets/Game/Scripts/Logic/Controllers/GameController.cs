@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
     private InventoryController inventoryController;
     [SerializeField]
     private InputController inputController;
+    [SerializeField]
+    private AdController adController;
 
     
     [Header("Entrance")]
@@ -64,7 +66,7 @@ public class GameController : MonoBehaviour
         outEntrancePresenter.Enable();
         
         circleSpawner.InitFields(playerView);
-        levelController = new LevelController(levels,inventoryController,playerView,circleSpawner);
+        levelController = new LevelController(levels,inventoryController,playerView,circleSpawner,adController);
 
 
 

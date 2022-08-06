@@ -6,8 +6,12 @@ namespace Game.Scripts.Logic.Sequence
 {
     public class QuestView : MonoBehaviour,ITapable
     {
+        [SerializeField] private ItemName hintName;
+        [SerializeField] private AdController adController;
         [SerializeField] private QuestAction[] actions;
-        
+
+        public ItemName HintName => hintName;
+
         public QuestAction[] Actions => actions;
 
         private QuestPresenter presenter;
@@ -23,6 +27,7 @@ namespace Game.Scripts.Logic.Sequence
         public event Action TapEvent;
         public void OnTap()
         {
+            adController.ChangeCurrentItemHint(hintName);
             TapEvent?.Invoke();
         }
 

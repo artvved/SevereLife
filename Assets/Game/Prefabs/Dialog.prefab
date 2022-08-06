@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 3291393048134064214}
   - component: {fileID: 3291393048134064215}
   - component: {fileID: 3291393048134064212}
-  - component: {fileID: 3291393048134064213}
+  - component: {fileID: 5916696899911041684}
   m_Layer: 5
   m_Name: LeaveDialogButton
   m_TagString: Untagged
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3291393048134064213
+--- !u!114 &5916696899911041684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3291393048134064210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86018be1e7944709b50f3b41c54740c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -619,31 +619,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3291393048134064212}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Game.Scripts.Logic.Dialog.DialogView, Assembly-CSharp
-        m_MethodName: HideDialog
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerView, Assembly-CSharp
-        m_MethodName: OnShowHideControls
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &3291393046418403199
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,19 +4,21 @@ namespace Game.Scripts.Logic
 {
     public class LevelController
     {
-        private LevelView[] levels;
         private int curLevel = -1;
+        private LevelView[] levels;
 
         private InventoryController inventoryController;
         private PlayerView playerView;
         private CircleSpawner circleSpawner;
+        private AdController adController;
 
-        public LevelController(LevelView[] levels, InventoryController inventoryController, PlayerView playerView, CircleSpawner circleSpawner)
+        public LevelController(LevelView[] levels, InventoryController inventoryController, PlayerView playerView, CircleSpawner circleSpawner, AdController adController)
         {
             this.levels = levels;
             this.inventoryController = inventoryController;
             this.playerView = playerView;
             this.circleSpawner = circleSpawner;
+            this.adController = adController;
         }
 
         public void InitNewLevel()
@@ -26,11 +28,12 @@ namespace Game.Scripts.Logic
             l.InitItems(inventoryController);
             l.InitReqs(inventoryController);
             l.InitDialogTriggers(inventoryController,playerView);
+            l.InitDealDialogTriggers(inventoryController,playerView);
             l.InitCircleModes(circleSpawner);
             l.InitDestroyModes(inventoryController);
             l.InitNearInteractableViews(playerView,inventoryController);
             l.InitWaitModes(playerView,inventoryController);
-            l.InitLevelChangers(this,playerView);
+            l.InitLevelChangers(this,playerView,adController);
             l.InitPlayerShowers(playerView);
             l.PlacePlayer(playerView);
             l.SetupCamera();

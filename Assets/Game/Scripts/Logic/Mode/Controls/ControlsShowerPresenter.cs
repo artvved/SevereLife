@@ -15,7 +15,7 @@ namespace Game.Scripts.Logic.Mode
 
         private void DoAction()
         {
-            Debug.Log("COnt do action "+view.IsActive);
+           
             if (view.Show)
             {
                 playerView.OnShowControls();
