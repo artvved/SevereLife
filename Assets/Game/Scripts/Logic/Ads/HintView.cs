@@ -21,6 +21,7 @@ namespace Game.Scripts.Logic.Ads
         public void Hide()
         {
             gameObject.SetActive(false);
+            image.rectTransform.localScale=new Vector3(1,1,1);
         }
 
         public void Show(ItemName itemName)
@@ -38,7 +39,15 @@ namespace Game.Scripts.Logic.Ads
             }
 
             var sprite = itemSpriteParser.GetHintSpriteByItem(itemName);
+           
+          
+            var k=sprite.rect.width / sprite.rect.height;
+            
             image.sprite = sprite;
+            var sc=image.rectTransform.localScale;
+            sc.x *= k;
+            image.rectTransform.localScale = sc;
+            
             gameObject.SetActive(true);
         }
     }

@@ -10,7 +10,7 @@ namespace Game.Scripts.Logic.Sequence
         [SerializeField] private AdController adController;
         [SerializeField] private QuestAction[] actions;
 
-        public ItemName HintName => hintName;
+       
 
         public QuestAction[] Actions => actions;
 
@@ -31,7 +31,13 @@ namespace Game.Scripts.Logic.Sequence
             TapEvent?.Invoke();
         }
 
-        public void DisableCollider()
+        public void Complete()
+        {
+            DisableCollider();
+          
+        }
+
+        private void DisableCollider()
         {
             if (col!=null)
             {

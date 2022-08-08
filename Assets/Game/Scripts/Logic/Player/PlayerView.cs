@@ -78,8 +78,8 @@ public class PlayerView : MonoBehaviour,ITapable
         }
 
         transform.position = targetPos;
+        Idle();
         inputController.Unblock();
-        soundEffect.StopEffect();
     }
 
     public event Action<Vector2> TurnEvent; 

@@ -6,7 +6,7 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
     public class DialogItemModel
     {
         private ItemModel itemModel;
-        public DialogItemFitPlaceView PlaceView { get; set; }
+        public DialogItemFitPlaceView PlaceView { get; private set; }
         public ItemModel ItemModel => itemModel;
         public bool IsFit => isFit;
         
@@ -23,12 +23,12 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
         {
             if (!place.Equals(PlaceView))
             {
-                Debug.Log((place.ItemName + " - " + itemModel.ItemName));
+               //Debug.Log((place.ItemName + " - " + itemModel.ItemName));
                 if (place.ItemName.Equals(itemModel.ItemName))
                 {
                     isFit = true;
                     PlaceView = place;
-                    Debug.Log("is fit");
+                   // Debug.Log("is fit");
                 }
             }
         }
@@ -40,7 +40,7 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
 
                 isFit = false;
                 PlaceView = null;
-                Debug.Log("unfit");
+                //Debug.Log("unfit");
             }
         }
 

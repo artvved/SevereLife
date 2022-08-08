@@ -37,7 +37,7 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
 
         private void OnEndDrag(PointerEventData eventData)
         {
-            Debug.Log("End drug, is fit - "+dialogItemModel.IsFit);
+          
           
             if (dialogItemModel.IsFit)
             {
@@ -59,7 +59,7 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
         {
            
             var place = other.gameObject.GetComponent<DialogItemFitPlaceView>();
-            Debug.Log("Enter " + other);
+            
             if (place!=null)
             {
                 dialogItemModel.Fit(place);
@@ -71,7 +71,7 @@ namespace Game.Scripts.Logic.Mode.Dialog.DialogItem
         private void OnTriggerExit(Collider2D other)
         { 
             var place = other.gameObject.GetComponent<DialogItemFitPlaceView>();
-            Debug.Log("Exit");
+           
             if (place!=null)
             {
                 dialogItemModel.UnFit(place);

@@ -10,6 +10,7 @@ namespace Game.Scripts.Logic.Mode.Dialog
         [SerializeField] private bool changeRequiredItem;
 
         public ItemName ItemName => itemName;
+        public bool IsFit { get; private set; }
 
         public void FitComplete(DialogItemView dialogItemView)
         {
@@ -17,10 +18,11 @@ namespace Game.Scripts.Logic.Mode.Dialog
             {
                 changeRequiredItem = false;
                 itemName = ItemName.NAILS;
-                Debug.Log("Fir complete "+itemName+ItemName);
+               // Debug.Log("Fir complete "+itemName+ItemName);
             }
             else
             {
+                IsFit = true;
                 Collider2D col = GetComponent<Collider2D>();
                 col.enabled = false;
                 if (ItemName.Equals(ItemName.NAILS))

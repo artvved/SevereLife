@@ -18,6 +18,8 @@ namespace Game.Scripts.Logic.Dialog
        
 
         private List<DialogItemModel> dialogItemModels;
+        private List<DialogItemModel> defaultItemModels;
+        private DialogItemFitPlaceView[] fitPlaceViews;
 
         public DialogTriggerPresenter(DialogTriggerView dialogTriggerView, InventoryController inventoryController,
             PlayerView playerView)
@@ -28,7 +30,8 @@ namespace Game.Scripts.Logic.Dialog
             this.places = dialogTriggerView.Places;
             leaveButton = dialogTriggerView.LeaveButton;
             dialogItemModels = new List<DialogItemModel>();
-           
+            defaultItemModels = new List<DialogItemModel>();
+            fitPlaceViews = dialogTriggerView.FitPlaces;
         }
 
         
@@ -46,20 +49,14 @@ namespace Game.Scripts.Logic.Dialog
 
         private bool IsDialogComplete()
         {
-           
-            if (dialogItemModels.Count == 0)
+            foreach (var fitPlace in fitPlaceViews)
             {
-                return false;
-            }
-
-            foreach (var m in dialogItemModels)
-            {
-               
-                if (!m.IsFit)
+                if (!fitPlace.IsFit)
                 {
                     return false;
                 }
             }
+           
 
             return true;
         }
@@ -124,15 +121,18 @@ namespace Game.Scripts.Logic.Dialog
             }
 
             //add default
-            for (int i = 0; i < places.Length; i++)
+            if (defaultItemModels.Count == 0)
             {
-                if (places[i].DefModel!=null)
+                for (int i = 0; i < places.Length; i++)
                 {
-                    dialogItemModels.Add(places[i].DefModel);
+                    if (places[i].DefModel != null)
+                    {
+                        defaultItemModels.Add(places[i].DefModel);
+                    }
+
                 }
-                
             }
-            
+
         }
 
 

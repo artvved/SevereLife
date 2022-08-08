@@ -23,6 +23,15 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.2d.ik": {
+      "version": "https://github.com/needle-mirror/com.unity.2d.ik.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.2d.common": "3.0.1"
+      },
+      "hash": "1db250b2e953d33402adc5137b381fc13fc9b272"
+    },
     "com.unity.2d.path": {
       "version": "3.0.2",
       "depth": 1,

@@ -49,7 +49,12 @@ namespace Game.Scripts.Logic
                 {
                     items[i] = null;
                     slots[i].SetDefaultPicture();
-                    firstEmptySlotPointer = i;
+                    
+                    if (firstEmptySlotPointer>i)
+                    {
+                        firstEmptySlotPointer = i;
+                    }
+                    
                 }
             }
             

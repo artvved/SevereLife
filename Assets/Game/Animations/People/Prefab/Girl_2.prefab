@@ -78,7 +78,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -100,10 +99,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 261412797
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -6257918362010086148, guid: 451b6c034e47c9947aaf2175611df031, type: 3}
+  m_Sprite: {fileID: -6257918362010086148, guid: 451b6c034e47c9947aaf2175611df031,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 1672319594684329383}
   m_Bounds:
-    m_Center: {x: 0.00500381, y: 0.00039978325, z: 0}
+    m_Center: {x: 0.0050076246, y: 0.00039930642, z: 0}
     m_Extent: {x: 0.13500002, y: 0.13460025, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -268,7 +268,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -290,10 +289,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 261412797
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3697542888431753435, guid: 451b6c034e47c9947aaf2175611df031, type: 3}
+  m_Sprite: {fileID: 3697542888431753435, guid: 451b6c034e47c9947aaf2175611df031,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -321,8 +321,8 @@ MonoBehaviour:
   - {fileID: 161128992101724458}
   - {fileID: 9047830780113363951}
   m_Bounds:
-    m_Center: {x: 0.01766336, y: 0.0016862154, z: 0}
-    m_Extent: {x: 1.3476634, y: 1.458314, z: 0}
+    m_Center: {x: 0.017672777, y: 0.0016863346, z: 0}
+    m_Extent: {x: 1.3476652, y: 1.4583135, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &5158217437751689118
@@ -402,7 +402,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -424,10 +423,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 261412797
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -2054332987581171383, guid: 451b6c034e47c9947aaf2175611df031, type: 3}
+  m_Sprite: {fileID: -2054332987581171383, guid: 451b6c034e47c9947aaf2175611df031,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -458,8 +458,8 @@ MonoBehaviour:
   - {fileID: 6949351496500863313}
   - {fileID: 161128992101724458}
   m_Bounds:
-    m_Center: {x: 0.0000023841858, y: 0.00000047683716, z: 0}
-    m_Extent: {x: 3.2950025, y: 5.379999, z: 0}
+    m_Center: {x: -0.0000030994415, y: 0.00000047683716, z: 0}
+    m_Extent: {x: 3.2949965, y: 5.3799996, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &5735807074948111540
@@ -697,7 +697,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -719,10 +718,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 261412797
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -996973887369997313, guid: 451b6c034e47c9947aaf2175611df031, type: 3}
+  m_Sprite: {fileID: -996973887369997313, guid: 451b6c034e47c9947aaf2175611df031,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 8814405063506802089}
   m_Bounds:
-    m_Center: {x: 0.005341187, y: 0.0003939569, z: 0}
+    m_Center: {x: 0.005345002, y: 0.00039443374, z: 0}
     m_Extent: {x: 0.13465503, y: 0.13460514, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -800,7 +800,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -822,10 +821,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 261412797
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 4325576637757713442, guid: 451b6c034e47c9947aaf2175611df031, type: 3}
+  m_Sprite: {fileID: 4325576637757713442, guid: 451b6c034e47c9947aaf2175611df031,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -852,8 +852,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 3819723062403835845}
   m_Bounds:
-    m_Center: {x: 0.0004900098, y: 0.0005362034, z: 0}
-    m_Extent: {x: 0.8811901, y: 0.23618472, z: 0}
+    m_Center: {x: 0.0004976392, y: 0.0005362034, z: 0}
+    m_Extent: {x: 0.88119, y: 0.23618469, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7316694708279076485
@@ -964,7 +964,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -986,10 +985,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 261412797
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -1796238865429807570, guid: 451b6c034e47c9947aaf2175611df031, type: 3}
+  m_Sprite: {fileID: -1796238865429807570, guid: 451b6c034e47c9947aaf2175611df031,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1017,8 +1017,8 @@ MonoBehaviour:
   - {fileID: 599381909172046883}
   - {fileID: 4576994248037208622}
   m_Bounds:
-    m_Center: {x: 0.015701294, y: -0.0000019073486, z: 0}
-    m_Extent: {x: 1.345705, y: 1.46, z: 0}
+    m_Center: {x: 0.015712738, y: -0.0000009536743, z: 0}
+    m_Extent: {x: 1.345705, y: 1.4600006, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &9094843055201378895

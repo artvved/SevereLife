@@ -13,8 +13,8 @@ public class AdController : MonoBehaviour
     [SerializeField] private HintView hintView;
 
 
-    private string levelVideoID = "ca-app-pub-3940256099942544/8691691433"; //"ca-app-pub-3940256099942544/1033173712";
-    private string rewardAdID ="ca-app-pub-3940256099942544/5224354917";
+    private string levelChangeAdID = "ca-app-pub-8890707814769278/6602676332";  //"ca-app-pub-3940256099942544/8691691433"; //"ca-app-pub-3940256099942544/1033173712";
+    private string rewardAdID = "ca-app-pub-8890707814769278/7937322195";  //"ca-app-pub-3940256099942544/5224354917";
 
     private InterstitialAd changeLevelAd;
     private RewardedAd rewardedAd;
@@ -28,7 +28,7 @@ public class AdController : MonoBehaviour
 
     private void OnEnable()
     {
-        changeLevelAd = new InterstitialAd(levelVideoID);
+        changeLevelAd = new InterstitialAd(levelChangeAdID);
         var adRec = new AdRequest.Builder().Build();
         changeLevelAd.LoadAd(adRec);
         
@@ -59,7 +59,7 @@ public class AdController : MonoBehaviour
         if (changeLevelAd.IsLoaded())
         {
             changeLevelAd.Show();
-            changeLevelAd = new InterstitialAd(levelVideoID);
+            changeLevelAd = new InterstitialAd(levelChangeAdID);
             var adRec = new AdRequest.Builder().Build();
             changeLevelAd.LoadAd(adRec);
         }
@@ -76,6 +76,7 @@ public class AdController : MonoBehaviour
                 rewardedAd = new RewardedAd(rewardAdID);
                 var rewAd = new AdRequest.Builder().Build();
                 rewardedAd.LoadAd(rewAd);
+                rewardedAd.OnUserEarnedReward += EarnReward;
             }
             
         }

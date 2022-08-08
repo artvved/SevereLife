@@ -14,10 +14,12 @@ namespace Game.Scripts.Logic.Dialog
     {
         [SerializeField] private DialogView dialog;
         [SerializeField] private DialogItemSpawnPlaceView[] places;
+        [SerializeField] private DialogItemFitPlaceView[] fitPlaces;
         [SerializeField] private Button leaveButton;
         [SerializeField] private DialogItemView prefab;
 
 
+        public DialogItemFitPlaceView[] FitPlaces => fitPlaces;
 
         public DialogItemSpawnPlaceView[] Places => places;
 

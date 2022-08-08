@@ -66,12 +66,12 @@ namespace Game.Scripts.Logic.Sequence
                 {
                     el.NextEvent += () =>
                     {
-                        questView.DisableCollider();
+                        questView.Complete();
                     };
                     
                     el.NextDoActionEvent+= () =>
                     {
-                        questView.DisableCollider();
+                        questView.Complete();
                     };
                 }
 
