@@ -8,12 +8,15 @@ namespace Game.Scripts.Logic.Mode.Dialog
     {
         [SerializeField] private ItemName itemName;
         [SerializeField] private bool changeRequiredItem;
+        [SerializeField] private ParticleSystem matchEffect;
 
         public ItemName ItemName => itemName;
         public bool IsFit { get; private set; }
 
         public void FitComplete(DialogItemView dialogItemView)
         {
+            matchEffect.transform.position = transform.position;
+            matchEffect.Play();
             if (changeRequiredItem)
             {
                 changeRequiredItem = false;
