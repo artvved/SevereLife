@@ -11,11 +11,14 @@ namespace Game.Scripts.Logic
         private PlayerModel playerModel;
         private InputController inputController;
 
+        private Rigidbody2D rb;
+
         public PlayerPresenter(PlayerView playerView, PlayerModel playerModel, InputController inputController)
         {
             this.playerView = playerView;
             this.playerModel = playerModel;
             this.inputController = inputController;
+            rb = playerView.GetComponent<Rigidbody2D>();
         }
 
 
@@ -63,7 +66,8 @@ namespace Game.Scripts.Logic
         
         public void MovePlayer()
         {
-            playerView.transform.Translate(playerModel.MovingDirection.normalized * playerModel.Speed);
+            rb.velocity = playerModel.MovingDirection.normalized * playerModel.Speed;
+          //  playerView.transform.Translate(playerModel.MovingDirection.normalized * playerModel.Speed);
         }
         
         private void PlayerMove(Vector2 direction)
@@ -92,6 +96,7 @@ namespace Game.Scripts.Logic
 
         public void StopMoving()
         {
+            rb.velocity = Vector2.zero;
             playerModel.IsMoving = false;
             playerView.Idle();
         }

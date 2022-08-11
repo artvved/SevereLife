@@ -643,8 +643,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 190, y: 63.1}
-  m_SizeDelta: {x: 80, y: 110}
+  m_AnchoredPosition: {x: 186.2, y: 63}
+  m_SizeDelta: {x: 90, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42765600
 MonoBehaviour:
@@ -5047,7 +5047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerView: {fileID: 292593942}
-  playerSpeed: 0.2
+  playerSpeed: 4.5
   playerRequirementView: {fileID: 292593943}
   levels:
   - {fileID: 1602872870}
@@ -6533,8 +6533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 73.29999, y: 63.100006}
-  m_SizeDelta: {x: 80, y: 110}
+  m_AnchoredPosition: {x: 89.3, y: 63}
+  m_SizeDelta: {x: 90, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &461574081
 MonoBehaviour:
@@ -20858,8 +20858,8 @@ MonoBehaviour:
   gear: {fileID: 21300000, guid: a481240eb9eba6d44aa964e0a075af02, type: 3}
   bagOfWheat: {fileID: 21300000, guid: df007b238197d054fa90cef5938477d9, type: 3}
   coin: {fileID: 21300000, guid: ecf0f0eaad0057b4b8c1fb3fe06bfcfd, type: 3}
-  nails: {fileID: 21300000, guid: cc62a4fe8b5aaac40868e8899892b224, type: 3}
-  carrot: {fileID: 21300000, guid: cf7a91d9b21b3d645af63d08f45e25d6, type: 3}
+  nails: {fileID: 21300000, guid: 9eaca922e6c1efc459e75214fb837203, type: 3}
+  carrot: {fileID: 21300000, guid: 7a4a94055b155894cb6c74c86fc2dfa8, type: 3}
   bagOfMoney: {fileID: 21300000, guid: 7e8feacbcc130554dae3a1aa42907bd7, type: 3}
   dialogGear: {fileID: -7502225119777936743, guid: 96c5c85f1ae0fa549a6c1639ca1bc9d5, type: 3}
   dialogNails: {fileID: 21300000, guid: 9c66c5e223a4f3643a7508a54aaf1ac8, type: 3}

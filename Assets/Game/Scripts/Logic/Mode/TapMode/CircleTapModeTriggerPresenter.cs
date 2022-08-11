@@ -21,7 +21,6 @@ namespace Game.Scripts.Logic
 
         private void OnDoAction()
         {
-            Debug.Log("on do");
             circleSpawner.StartSpawn(view);
             
         }

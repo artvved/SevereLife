@@ -29,7 +29,7 @@ namespace Game.Scripts.Logic.Terrain
 
         public override void StartEffect()
         {
-          print(this);
+          
             animator.SetTrigger(startAnimationName);
         }
 

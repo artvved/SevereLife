@@ -5,6 +5,7 @@ using Game.Scripts.Logic;
 using Game.Scripts.Logic.Audio;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
@@ -40,15 +41,13 @@ public class InputController : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
                 if (hit.collider != null)
                 {
-                    List<ITapable> tapables = new List<ITapable>();
-                    tapables.AddRange(hit.collider.gameObject.GetComponentsInChildren<ITapable>());
-                    foreach (var tapable in tapables)
+                    
+                    
+                    var tapable = hit.collider.gameObject.GetComponentInChildren<ITapable>();
+                    if (tapable != null)
                     {
-                        if (tapable != null)
-                        {
-                            soundEffect.StartEffect();
-                            tapable.OnTap();
-                        }
+                        soundEffect.StartEffect();
+                        tapable.OnTap();
                     }
                 }
             }
