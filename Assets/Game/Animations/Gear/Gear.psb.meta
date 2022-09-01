@@ -21,10 +21,13 @@ ScriptedImporter:
     convertToNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
     isReadable: 0
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
+    ignoreMasterTextureLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -43,7 +46,10 @@ ScriptedImporter:
     textureType: 8
     textureShape: 1
     singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -77,7 +83,6 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -85,7 +90,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
@@ -101,13 +105,16 @@ ScriptedImporter:
       width: 1205
       height: 1274
     spriteID: 127be30a6d6bb864597d18268be23cd8
-    internalID: 0
     spriteBone:
     - name: bone_4
+      guid: 
       position: {x: 598.1118, y: 599.6802, z: 0}
       rotation: {x: 0, y: 0, z: 0.3892726, w: 0.9211226}
       length: 558.2783
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 730.04004, y: 4.9521484}
@@ -421,7 +428,6 @@ ScriptedImporter:
     - {x: 26, y: 25}
     - {x: 0, y: 26}
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: -2388, y: 2507}
   - name: Gear_2
     originalName: 
@@ -435,13 +441,16 @@ ScriptedImporter:
       width: 1392
       height: 1389
     spriteID: 9d639a338f900ad4db99ae12cbd624a3
-    internalID: 0
     spriteBone:
     - name: bone_3
+      guid: 
       position: {x: 697.25024, y: 699.8469, z: 0}
       rotation: {x: 0, y: 0, z: -0.23538525, w: 0.97190213}
       length: 653.18665
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 702.80396, y: 11.395996}
@@ -1140,7 +1149,6 @@ ScriptedImporter:
     - {x: 61, y: 60}
     - {x: 0, y: 61}
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: -548, y: 2844}
   - name: Gear_1
     originalName: 
@@ -1154,13 +1162,16 @@ ScriptedImporter:
       width: 1940
       height: 1942
     spriteID: 7e58ee646a49034439015e730733a039
-    internalID: 0
     spriteBone:
     - name: bone_2
+      guid: 
       position: {x: 967.3334, y: 974.81934, z: 0}
       rotation: {x: 0, y: 0, z: -0.06480569, w: 0.9978979}
       length: 915.5514
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 1231.584, y: 147.83203}
@@ -2101,7 +2112,6 @@ ScriptedImporter:
     - {x: 82, y: 83}
     - {x: 0, y: 83}
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: -991, y: 2166}
   - name: Board
     originalName: 
@@ -2115,13 +2125,16 @@ ScriptedImporter:
       width: 7714
       height: 3176
     spriteID: 346fbce5c12cbde4a817e92fa865e9af
-    internalID: 0
     spriteBone:
     - name: bone_1
+      guid: 
       position: {x: 3451.0002, y: 2910.3196, z: 0}
       rotation: {x: 0, y: 0, z: 0.009879404, w: 0.9999512}
       length: 1426.9177
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     spriteOutline: []
     vertices:
     - position: {x: 7715, y: 759.144}
@@ -2559,88 +2572,45 @@ ScriptedImporter:
     - {x: 30, y: 29}
     - {x: 0, y: 30}
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
-  platformSettings:
-  - name: Default
-    overridden: 1
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  mosaicLayers: 1
-  documentPivot: {x: 0, y: 0}
-  documentAlignment: 7
-  importHiddenLayers: 0
-  importedTextureWidth: 2048
-  importedTextureHeight: 2048
-  documentSize: {x: 7714, y: 3176}
-  paperDollMode: 0
-  keepDupilcateSpriteName: 0
-  spriteCategoryList:
-    categories: []
-  textureActualWidth: 8192
-  textureActualHeight: 8192
-  spritePackingTag: 
-  resliceFromLayer: 0
-  characterMode: 1
-  mosaicPSDLayers: []
-  rigPSDLayers:
-  - name: Gear_3
-    spriteName: Gear_3
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 127be30a6d6bb864597d18268be23cd8
-    layerID: 7
-    mosaicPosition: {x: 3352, y: 3188}
-  - name: Gear_2
-    spriteName: Gear_2
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 9d639a338f900ad4db99ae12cbd624a3
-    layerID: 6
-    mosaicPosition: {x: 1952, y: 3188}
-  - name: Gear_1
-    spriteName: Gear_1
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 7e58ee646a49034439015e730733a039
-    layerID: 5
-    mosaicPosition: {x: 4, y: 3188}
-  - name: Board
-    spriteName: Board
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 346fbce5c12cbde4a817e92fa865e9af
-    layerID: 3
-    mosaicPosition: {x: 4, y: 4}
   characterData:
     bones:
     - name: bone_1
+      guid: 
       position: {x: 3451.0002, y: 2910.3196, z: 0}
       rotation: {x: 0, y: 0, z: 0.009879404, w: 0.9999512}
       length: 1426.9176
       parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: bone_2
+      guid: 
       position: {x: -1506.425, y: -883.9092, z: 0}
       rotation: {x: 0, y: 0, z: -0.07466115, w: 0.99720895}
       length: 915.55145
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: bone_3
+      guid: 
       position: {x: -290.57788, y: -1861.0947, z: 0}
       rotation: {x: 0, y: 0, z: -0.24497558, w: 0.9695293}
       length: 653.18665
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     - name: bone_4
+      guid: 
       position: {x: 2854.3496, y: -1686.3643, z: 0}
       rotation: {x: 0, y: 0, z: 0.38015345, w: 0.9249234}
       length: 558.2783
       parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 0
     parts:
     - spritePosition:
         x: 5740
@@ -2680,8 +2650,91 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings:
+  - name: Default
+    overridden: 1
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  skeletonAssetReferenceID: 
+  padding: 4
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Gear_3
+    spriteName: Gear_3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 127be30a6d6bb864597d18268be23cd8
+    layerID: 7
+    mosaicPosition: {x: 3352, y: 3188}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Gear_2
+    spriteName: Gear_2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9d639a338f900ad4db99ae12cbd624a3
+    layerID: 6
+    mosaicPosition: {x: 1952, y: 3188}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Gear_1
+    spriteName: Gear_1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7e58ee646a49034439015e730733a039
+    layerID: 5
+    mosaicPosition: {x: 4, y: 3188}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Board
+    spriteName: Board
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 346fbce5c12cbde4a817e92fa865e9af
+    layerID: 3
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  importFileNodeState: 1
   generateGOHierarchy: 0
   textureAssetName: Gear Texture
   prefabAssetName: Gear Prefab
   spriteLibAssetName: Gear Sprite Lib
+  skeletonAssetName: 
   secondarySpriteTextures: []
